@@ -1,0 +1,80 @@
+---
+/**
+ * Countdown — cuenta regresiva en 3 estados:
+ *
+ *   pre    → timer regresivo al inicio del evento
+ *   live   → "EVENTO EN CURSO" con punto pulsante
+ *   ended  → mensaje de agradecimiento
+ *
+ * Las fechas son constantes de build. El JS client-side
+ * verifica el estado cada segundo y transiciona solo.
+ */
+const eventStart = "2026-07-11T13:00:00-06:00";
+const eventEnd   = "2026-07-11T18:30:00-06:00";
+---
+
+<div
+  id="countdown"
+  class="countdown-wrap"
+  data-countdown-state="pre"
+  data-event-start={eventStart}
+  data-event-end={eventEnd}
+  aria-label="Cuenta regresiva del evento"
+>
+  <!-- ⏳ Pre-evento → countdown -->
+  <div id="countdown-timer">
+    <p class="countdown-heading">FALTAN</p>
+    <div class="countdown-grid">
+      <div class="countdown-unit">
+        <span class="countdown-value" id="countdown-days">00</span>
+        <span class="countdown-label">DÍAS</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">:</span>
+
+      <div class="countdown-unit">
+        <span class="countdown-value" id="countdown-hours">00</span>
+        <span class="countdown-label">HRS</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">:</span>
+
+      <div class="countdown-unit">
+        <span class="countdown-value" id="countdown-mins">00</span>
+        <span class="countdown-label">MIN</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">:</span>
+
+      <div class="countdown-unit">
+        <span class="countdown-value" id="countdown-secs">00</span>
+        <span class="countdown-label">SEG</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔥 Durante el evento -->
+  <div id="countdown-live" hidden>
+    <p class="countdown-live-text">
+      <span class="countdown-dot" aria-hidden="true"></span>
+      EVENTO EN CURSO
+    </p>
+    <p class="countdown-live-sub">Parque de la Bombilla · 13:00&nbsp;hrs</p>
+  </div>
+
+  <!-- 🏁 Evento finalizado -->
+  <div id="countdown-ended" hidden>
+    <p class="countdown-ended-text">
+      GRACIAS A TODXS POR SER PARTE
+    </p>
+    <p class="countdown-ended-sub">
+      Hamburguesa Nómada 5º Aniversario
+    </p>
+  </div>
+</div>
+
+<script>
+  import { initCountdown } from "../scripts/countdown";
+
+  const wrap = document.getElementById("countdown");
+  const start = wrap?.getAttribute("data-event-start") ?? "";
+  const end   = wrap?.getAttribute("data-event-end") ?? "";
+  initCountdown(start, end);
+</script>

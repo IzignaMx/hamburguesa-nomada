@@ -1,5 +1,6 @@
 ---
 import copy from "../data/official-copy.json";
+import Countdown from "./Countdown.astro";
 ---
 
 <header class="hero">
@@ -14,6 +15,8 @@ import copy from "../data/official-copy.json";
     />
     <p class="eyebrow">{copy.hero.anniversary}</p>
     <h1>{copy.hero.event}</h1>
+
+    <Countdown />
 
     <div class="official-lines" aria-label="Información oficial">
       <p>{copy.hero.riders}</p>
