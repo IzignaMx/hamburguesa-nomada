@@ -1,0 +1,102 @@
+name: 🔄 Data Watcher — Auto-refresh on API changes
+
+on:
+  schedule:
+    # Cada 30 min — solo útil durante la ventana del evento (11-15 Jul 2026)
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    # Manual trigger: funciona siempre, incluso fuera de la ventana
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── Ventana de fechas + fetch + diff ──
+      # Schedule: solo corre entre 11 y 15 Jul 2026.
+      # workflow_dispatch: siempre funciona (deploys manuales post-evento).
+      - name: Fetch and compare remote data
+        id: data
+        env:
+          DATA_URL: ${{ vars.PUBLIC_DATA_API_URL }}
+        shell: bash
+        run: |
+          # ── Fechas permitidas solo para schedule ──
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            TODAY=$(date +%Y%m%d)
+            if [ "$TODAY" -lt "20260711" ] || [ "$TODAY" -gt "20260715" ]; then
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              echo "⏸️  Fuera de ventana Jul 11–15 — schedule desactivado"
+              exit 0
+            fi
+          fi
+
+          # ── Skip si no hay URL configurada ──
+          if [ -z "$DATA_URL" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "ℹ️  PUBLIC_DATA_API_URL no configurada — saltando"
+            exit 0
+          fi
+
+          # ── Fetch remoto ──
+          if ! curl -sf --max-time 15 "$DATA_URL" -o /tmp/remote.json; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "⚠️  No se pudo obtener $DATA_URL — saltando"
+            exit 0
+          fi
+
+          # ── Normalizar ambos archivos con jq para comparación justa ──
+          jq -cS . /tmp/remote.json > /tmp/remote-norm.json
+
+          LOCAL_FILE="public/data/public-payload.json"
+          if [ -f "$LOCAL_FILE" ]; then
+            jq -cS . "$LOCAL_FILE" > /tmp/local-norm.json
+            if diff /tmp/remote-norm.json /tmp/local-norm.json > /dev/null; then
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              echo "✓ Datos sin cambios — no se necesita deploy"
+              exit 0
+            fi
+          fi
+
+          # ── Datos cambiaron ──
+          cp /tmp/remote.json "$LOCAL_FILE"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "🚀 Datos actualizados — procediendo a build + deploy"
+
+      - name: Setup Node
+        if: steps.data.outputs.skip != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install
+        if: steps.data.outputs.skip != 'true'
+        run: npm ci
+
+      - name: Build
+        if: steps.data.outputs.skip != 'true'
+        env:
+          PUBLIC_DATA_API_URL: ${{ vars.PUBLIC_DATA_API_URL }}
+        run: npm run build
+
+      - name: Upload Pages artifact
+        if: steps.data.outputs.skip != 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        if: steps.data.outputs.skip != 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
