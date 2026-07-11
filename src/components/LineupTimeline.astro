@@ -1,0 +1,55 @@
+---
+/**
+ * LineupTimeline — timeline vertical de DJs con premios
+ *
+ * Renderiza cada item parseando el nombre del artista (después de "·")
+ * para dar énfasis visual con display font.
+ */
+import copy from "../data/official-copy.json";
+const music = copy.music;
+
+/**
+ * Divide "2:00 - 3:30 PM · DJ ASTRUM"
+ * → { time: "2:00 - 3:30 PM", name: "DJ ASTRUM" }
+ * Si no hay "·", el texto completo es el nombre.
+ */
+function parseItem(item: string): { time: string; name: string } {
+  const idx = item.indexOf("·");
+  if (idx === -1) return { time: "", name: item.trim() };
+  return {
+    time: item.slice(0, idx).trim(),
+    name: item.slice(idx + 1).trim(),
+  };
+}
+
+const isAwards = (name: string) =>
+  /premiación|premiacion/i.test(name);
+---
+
+<section id="djs" class="section section--soft">
+  <div class="container">
+    <h2>{music.title}</h2>
+
+    <ol class="lineup-list">
+      {music.items.map((item) => {
+        const { time, name } = parseItem(item);
+        const awards = isAwards(name);
+
+        return (
+          <li class={awards ? "lineup-item lineup-item--awards" : "lineup-item"}>
+            <div class="lineup-marker" aria-hidden="true">
+              <span class="lineup-dot"></span>
+            </div>
+
+            <div class="lineup-content">
+              {time && <time class="lineup-time">{time}</time>}
+              <span class={awards ? "lineup-name lineup-name--awards" : "lineup-name"}>
+                {name}
+              </span>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+</section>

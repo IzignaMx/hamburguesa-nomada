@@ -1,0 +1,27 @@
+---
+/**
+ * Announcement — comunicado oficial del evento
+ */
+import copy from "../data/official-copy.json";
+const announcement = copy.announcement;
+---
+
+<section id="comunicado" class="section">
+  <div class="container literal-copy">
+    <h2>{announcement.title}</h2>
+
+    {announcement.paragraphs.map((paragraph) => (
+      <p>{paragraph}</p>
+    ))}
+
+    <ul class="official-list">
+      {announcement.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+
+    {announcement.footer.map((line) => (
+      <p class="official-footer-line">{line}</p>
+    ))}
+  </div>
+</section>

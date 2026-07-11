@@ -1,0 +1,23 @@
+---
+/**
+ * Categories — categorías del alleycat con chips visuales
+ */
+import copy from "../data/official-copy.json";
+const categories = copy.categories;
+---
+
+<section id="categorias" class="section section--ink">
+  <div class="container literal-copy">
+    <h2>{categories.title}</h2>
+    <p class="eyebrow">{categories.subtitle}</p>
+
+    <ul class="category-grid">
+      {categories.items.map((category) => (
+        <li>{category}</li>
+      ))}
+    </ul>
+
+    <p>{categories.requirements}</p>
+    <p>{categories.care}</p>
+  </div>
+</section>

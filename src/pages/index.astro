@@ -2,7 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import Hero from "../components/Hero.astro";
+import Announcement from "../components/Announcement.astro";
+import Categories from "../components/Categories.astro";
+import LineupTimeline from "../components/LineupTimeline.astro";
 import SponsorsGrid from "../components/SponsorsGrid.astro";
+import PrizeCallout from "../components/PrizeCallout.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import sponsors from "../data/sponsors.json";
 import copy from "../data/official-copy.json";
 ---
@@ -15,62 +20,11 @@ import copy from "../data/official-copy.json";
   <Hero />
 
   <main id="main">
-    <section id="comunicado" class="section">
-      <div class="container literal-copy">
-        <h2>{copy.announcement.title}</h2>
+    <Announcement />
 
-        {
-          copy.announcement.paragraphs.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))
-        }
+    <Categories />
 
-        <ul class="official-list">
-          {
-            copy.announcement.items.map((item) => (
-              <li>{item}</li>
-            ))
-          }
-        </ul>
-
-        {
-          copy.announcement.footer.map((line) => (
-            <p class="official-footer-line">{line}</p>
-          ))
-        }
-      </div>
-    </section>
-
-    <section class="section section--ink">
-      <div class="container literal-copy">
-        <h2>{copy.categories.title}</h2>
-        <p class="eyebrow">{copy.categories.subtitle}</p>
-
-        <ul class="category-grid">
-          {
-            copy.categories.items.map((category) => (
-              <li>{category}</li>
-            ))
-          }
-        </ul>
-
-        <p>{copy.categories.requirements}</p>
-        <p>{copy.categories.care}</p>
-      </div>
-    </section>
-
-    <section id="djs" class="section section--soft">
-      <div class="container literal-copy">
-        <h2>{copy.music.title}</h2>
-        <ul class="schedule-list">
-          {
-            copy.music.items.map((item) => (
-              <li>{item}</li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
+    <LineupTimeline />
 
     <section id="colaboradores" class="section">
       <div class="container">
@@ -79,19 +33,8 @@ import copy from "../data/official-copy.json";
       </div>
     </section>
 
-    <section id="premios" class="section section--ink">
-      <div class="container">
-        <h2>PREMIOS</h2>
-        <a class="button button--light" href="/premios/?code=DEMO-HN5">
-          CONSULTAR PREMIO
-        </a>
-      </div>
-    </section>
+    <PrizeCallout />
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <a href="https://izignamx.com">IzignaMx</a>
-    </div>
-  </footer>
+  <SiteFooter />
 </BaseLayout>
