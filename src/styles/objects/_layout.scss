@@ -22,7 +22,11 @@
   border: var(--border-default) solid var(--border-strong);
   border-radius: var(--radius-pill);
   padding: 0.65rem 1rem;
+  font-family: var(--font-display);
   font-weight: 800;
+  font-size: var(--text-md);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   background: var(--surface-paper);
   transition:
     transform var(--duration-fast) var(--ease-out),
