@@ -9,7 +9,7 @@
  * Uso: node scripts/prepare-poster-assets.mjs
  */
 
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from "node:fs";
+import { writeFileSync, mkdirSync, copyFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import sharp from "sharp";
 

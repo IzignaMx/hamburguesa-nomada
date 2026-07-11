@@ -83,7 +83,7 @@ for (const icon of ICONS) {
 
   mkdirSync(dirname(dest), { recursive: true });
   await img.png().toFile(dest);
-  const stats = await sharp(logoFile).metadata();
+  await sharp(logoFile).metadata();
   console.log(`✅ ${dest}  (${icon.size}×${icon.size})`);
 }
 
