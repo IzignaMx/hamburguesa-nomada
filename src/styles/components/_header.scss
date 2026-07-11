@@ -103,6 +103,10 @@
     display: flex;
   }
 
+  .site-header__wordmark {
+    display: none;
+  }
+
   .site-header__nav {
     position: fixed;
     inset: 0;
