@@ -1,4 +1,4 @@
-/* ── EventFacts ───────────────────────────── */
+/* ── EventFacts — Pills informativos ────────── */
 
 .event-facts {
   display: grid;
@@ -15,6 +15,14 @@
   border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-4);
   background: var(--surface-paper);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.event-fact:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
 }
 
 .event-fact__label {

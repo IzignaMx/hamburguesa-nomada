@@ -1,15 +1,29 @@
 /**
- * Navigation — active section tracking + mobile menu close
+ * Navigation — active section tracking + mobile menu toggle
  *
  * IntersectionObserver marca el link activo del nav.
- * Cierra el hamburger CSS checkbox al hacer clic en un link.
+ * Botón hamburger semántico con aria-expanded.
+ * Cierra el menú al hacer clic en un link.
  */
 
+const header = document.querySelector<HTMLElement>(".site-header");
+const navBtn = document.querySelector<HTMLButtonElement>(".nav-btn");
 const navLinks = document.querySelectorAll<HTMLAnchorElement>(
-  ".site-header__nav a"
+  ".site-header__nav a",
 );
-const navToggle = document.querySelector<HTMLInputElement>("#nav-toggle");
 const sections = document.querySelectorAll<HTMLElement>("section[id]");
+
+/* ── Mobile menu toggle ───────────────────────── */
+
+if (navBtn && header) {
+  navBtn.addEventListener("click", () => {
+    const isOpen = navBtn.getAttribute("aria-expanded") === "true";
+    const next = !isOpen;
+    navBtn.setAttribute("aria-expanded", String(next));
+    header.classList.toggle("nav--open", next);
+    navBtn.setAttribute("aria-label", next ? "Cerrar menú" : "Abrir menú de navegación");
+  });
+}
 
 /* ── Active section ──────────────────────────── */
 
@@ -39,8 +53,10 @@ if (sections.length > 0 && navLinks.length > 0) {
 
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    if (navToggle && navToggle.checked) {
-      navToggle.checked = false;
+    if (navBtn && navBtn.getAttribute("aria-expanded") === "true") {
+      navBtn.setAttribute("aria-expanded", "false");
+      header?.classList.remove("nav--open");
+      navBtn.setAttribute("aria-label", "Abrir menú de navegación");
     }
   });
 });

@@ -40,13 +40,7 @@
   letter-spacing: 0.08em;
 }
 
-/* ── Hamburger (checkbox hack) ───────────── */
-
-.nav-toggle {
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-}
+/* ── Hamburger (botón semántico) ─────────── */
 
 .nav-btn {
   display: none;
@@ -55,6 +49,8 @@
   padding: 4px;
   cursor: pointer;
   z-index: 101;
+  border: none;
+  background: none;
 }
 
 .nav-btn__line {
@@ -103,6 +99,10 @@
     display: flex;
   }
 
+  .site-header__wordmark {
+    display: none;
+  }
+
   .site-header__nav {
     position: fixed;
     inset: 0;
@@ -122,19 +122,19 @@
     padding: var(--space-3) var(--space-5);
   }
 
-  .nav-toggle:checked ~ .site-header__nav {
+  .nav--open .site-header__nav {
     transform: translateX(0);
   }
 
-  .nav-toggle:checked ~ .nav-btn .nav-btn__line:nth-child(1) {
+  .nav--open .nav-btn__line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
 
-  .nav-toggle:checked ~ .nav-btn .nav-btn__line:nth-child(2) {
+  .nav--open .nav-btn__line:nth-child(2) {
     opacity: 0;
   }
 
-  .nav-toggle:checked ~ .nav-btn .nav-btn__line:nth-child(3) {
+  .nav--open .nav-btn__line:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
 }

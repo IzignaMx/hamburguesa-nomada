@@ -1,0 +1,44 @@
+{
+  "id": "/",
+  "name": "Hamburguesa Nómada — Alleycat 5",
+  "short_name": "HM",
+  "description": "Micrositio del quinto aniversario y alleycat de Hamburguesa Nómada.",
+  "lang": "es-MX",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#191518",
+  "theme_color": "#191518",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Consultar premio",
+      "short_name": "Premios",
+      "url": "/premios/"
+    }
+  ]
+}

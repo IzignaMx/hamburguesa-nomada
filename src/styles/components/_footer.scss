@@ -1,5 +1,42 @@
+/* ── SiteFooter ─────────────────────────────── */
+
 .footer {
-  padding-block: var(--space-6);
+  padding-block: var(--space-7);
   color: var(--text-inverse);
   background: var(--surface-inverse);
+  text-align: center;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.footer__copy {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-pink-300);
+}
+
+.footer__credit {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--color-pink-500);
+  letter-spacing: 0.04em;
+}
+
+.footer__credit a {
+  color: var(--text-inverse);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.footer__credit a:hover {
+  opacity: 0.8;
 }

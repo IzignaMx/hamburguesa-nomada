@@ -1,0 +1,51 @@
+---
+/**
+ * HeroPosterArt — Composición visual del póster oficial
+ *
+ * Integra los assets oficiales renderizados como capas decorativas.
+ * El asset del título contiene texto gráfico — es aria-hidden.
+ * El H1 real está en Hero.astro para lectores de pantalla.
+ */
+
+import posterRays from "../assets/poster/generated/poster-rays-flames.webp";
+import posterTitle from "../assets/poster/generated/poster-title-composition.webp";
+import posterDatePlace from "../assets/poster/generated/poster-date-place.webp";
+---
+
+<div class="poster-art" aria-hidden="true">
+  <!-- Capa base: rayos y flamas (parallax layer 1) -->
+  <div class="poster-art__rays" data-parallax="rays">
+    <img
+      src={posterRays.src}
+      alt=""
+      width="800"
+      height="1380"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Composición principal del título -->
+  <div class="poster-art__title" data-parallax="title">
+    <img
+      src={posterTitle.src}
+      alt=""
+      width="600"
+      height="1035"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Sticker: texto curvo fecha y sede (parallax layer 2) -->
+  <div class="poster-art__sticker" data-parallax="sticker">
+    <img
+      src={posterDatePlace.src}
+      alt=""
+      width="400"
+      height="690"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+</div>
