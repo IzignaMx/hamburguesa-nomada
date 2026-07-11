@@ -37,6 +37,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
   </head>
   <body data-api-url={apiUrl}>
+    <script>
+      /* Registrar service worker */
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
     <a class="skip-link" href="#main">Saltar al contenido</a>
     <slot />
   </body>
