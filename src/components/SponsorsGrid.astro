@@ -1,0 +1,31 @@
+---
+import type { Sponsor } from "../lib/types";
+
+interface Props {
+  sponsors: Sponsor[];
+}
+
+const { sponsors } = Astro.props;
+---
+
+<div class="sponsor-grid">
+  {
+    sponsors.map((sponsor) => (
+      <article class="sponsor-card">
+        <img
+          src={sponsor.logo}
+          alt={`Logotipo temporal de ${sponsor.name}`}
+          loading="lazy"
+          width="240"
+          height="240"
+        />
+        <h3>{sponsor.name}</h3>
+        {sponsor.url && (
+          <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            {sponsor.url}
+          </a>
+        )}
+      </article>
+    ))
+  }
+</div>

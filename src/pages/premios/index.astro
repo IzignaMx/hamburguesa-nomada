@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PrizeLookup from "../../components/PrizeLookup.astro";
+---
+
+<BaseLayout
+  title="Consulta tu premio — Hamburguesa Nómada"
+  description="Consulta y descarga el reconocimiento digital de tu premio."
+>
+  <main id="main">
+    <PrizeLookup />
+    <p class="container">
+      <a href="/">Volver al evento</a>
+    </p>
+  </main>
+  <script>
+    import "../../scripts/prize-page";
+  </script>
+</BaseLayout>

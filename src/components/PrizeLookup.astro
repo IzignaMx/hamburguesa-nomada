@@ -1,0 +1,41 @@
+<section class="prize-lookup" aria-labelledby="prize-title">
+  <div class="container">
+    <p class="eyebrow">Reconocimiento digital</p>
+    <h1 id="prize-title">Consulta tu premio</h1>
+
+    <form id="prize-form" class="lookup-form">
+      <label for="prize-code">Código</label>
+      <div class="lookup-form__row">
+        <input
+          id="prize-code"
+          name="code"
+          autocomplete="off"
+          placeholder="Ej. HN5-TNB-1-A7KQ"
+          required
+        />
+        <button class="button" type="submit">Consultar</button>
+      </div>
+    </form>
+
+    <p id="prize-status" role="status" aria-live="polite"></p>
+
+    <article id="prize-result" class="award-card" hidden>
+      <p class="eyebrow">5º aniversario</p>
+      <h2 id="award-person"></h2>
+      <p id="award-placement"></p>
+      <h3 id="award-prize"></h3>
+      <p id="award-description"></p>
+      <p>Patrocina: <strong id="award-sponsor"></strong></p>
+      <p>Código: <code id="award-code"></code></p>
+      <div id="award-qr" class="qr-preview" aria-label="Código QR del premio"></div>
+      <div class="actions">
+        <button id="download-card" class="button" type="button">
+          Descargar imagen
+        </button>
+        <button id="share-award" class="button button--ghost" type="button">
+          Compartir
+        </button>
+      </div>
+    </article>
+  </div>
+</section>

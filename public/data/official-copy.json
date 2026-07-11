@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "event": "ALLEY CAT",
+    "anniversary": "ANIVERSARIO 5",
+    "riders": "SÁBADO 11 DE JULIO, PARQUE DE LA BOMBILLA · 13:00 HRS",
+    "public": "SÁBADO 11 DE JULIO, CHOCOLATERÍA 400 VOCES: ALFONSO PRUNEDA #24 · 2 PM",
+    "publicAdmission": "Cooperación voluntaria consciente",
+    "price": "$150 Alleycat con convivencia incluye bajón",
+    "awards": "Premiación en Chocolatería 400 voces",
+    "address": "Alfonso Pruneda #24, Copilco el alto"
+  },
+  "announcement": {
+    "title": "COMUNICADO",
+    "paragraphs": [
+      "COMO COMUNIDAD QUEREMOS FOMENTAR EL APOYO ENTRE NOSOTRXS MISMXS, ES POR ESO QUE PROHIBIREMOS EL ACCESO DE BEBIDAS Y ALIMENTOS CON LA FINALIDAD DE AUMENTAR LA VENTA DE LOS EXPOSITORES, PATROCINADORES Y LAS 400 VOCES QUE AMABLEMENTE NOS ABREN LAS PUERTAS DEL LUGAR PARA LLEVAR ACABO ESTA CONVIVENCIA.",
+      "SI ESTÁ DENTRO DE TUS POSIBILIDADES TRAE TU VASO, BIDÓN Y PLATO PARA GENERAR MENOS BASURA."
+    ],
+    "items": [
+      "INSCRIPCIÓN: $150 PESOS",
+      "LA INSCRIPCIÓN INCLUYE ENTRADA A LA CONVIVENCIA Y BAJÓN VEGANO.",
+      "EL ALLEYCAT ES INDIVIDUAL.",
+      "LLEVA TU BICI EN BUEN ESTADO, CANDADO, AGUA Y ACTITUD.",
+      "HABRÁ RETOS, PISTAS Y MISIONES POR TODA LA CIUDAD.",
+      "RESPETA A LXS DEMÁS, AL ESPACIO Y A TODOS LXS SERES.",
+      "RECOMIENDO LLEVAR OTRO CAMBIO DE ROPA POR SI LLUEVE, ESTÉN CÓMODOS, YO LO CUIDO.",
+      "PREMIACIÓN EN CHOCOLATERÍA 400 VOCES: ALFONSO PRUNEDA #24"
+    ],
+    "footer": [
+      "SÁBADO 11 DE JULIO, PARQUE DE LA BOMBILLA · 13:00 HRS",
+      "PREMIACIÓN EN CHOCOLATERÍA 400 VOCES: ALFONSO PRUNEDA #24"
+    ]
+  },
+  "categories": {
+    "title": "CATEGORÍAS",
+    "subtitle": "TODAS LAS BICIS JUEGAN",
+    "items": [
+      "TRANS/N.B.",
+      "FEMENIL",
+      "VARONIL",
+      "CARGO MIXTO",
+      "PATINES MIXTO"
+    ],
+    "requirements": "TRAER BICI EN BUEN ESTADO, CELULAR CON DATOS, HERRAMIENTA PARA SOLUCIONAR PROBLEMAS, CANDADO, IMPERMEABLE, BUENA ACTITUD.",
+    "care": "DIVIÉRTETE Y CUIDA TU INTEGRIDAD."
+  },
+  "music": {
+    "title": "DJS",
+    "items": [
+      "2:00 - 3:30 PM · DJ ASTRUM",
+      "3:30 - 5:30 PM · FUULGOOR",
+      "5:00 - 6:30 PM · ANONYMUS",
+      "6:30 PM · PREMIACIÓN",
+      "7:00 - 9:30 PM · DELICYD"
+    ]
+  },
+  "collaborators": {
+    "title": "COLABORADORXS"
+  }
+}

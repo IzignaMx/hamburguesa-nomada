@@ -1,0 +1,32 @@
+---
+import copy from "../data/official-copy.json";
+---
+
+<header class="hero">
+  <div class="hero__texture" aria-hidden="true"></div>
+  <div class="container hero__content">
+    <img
+      class="hero__logo"
+      src="/logos/hamburguesa-nomada.webp"
+      alt="Hamburguesa Nómada"
+      width="240"
+      height="240"
+    />
+    <p class="eyebrow">{copy.hero.anniversary}</p>
+    <h1>{copy.hero.event}</h1>
+
+    <div class="official-lines" aria-label="Información oficial">
+      <p>{copy.hero.riders}</p>
+      <p>{copy.hero.public}</p>
+      <p>{copy.hero.publicAdmission}</p>
+      <p>{copy.hero.price}</p>
+      <p>{copy.hero.awards}</p>
+      <p>{copy.hero.address}</p>
+    </div>
+
+    <div class="actions">
+      <a class="button" href="#comunicado">COMUNICADO</a>
+      <a class="button button--ghost" href="/premios/">PREMIOS</a>
+    </div>
+  </div>
+</header>

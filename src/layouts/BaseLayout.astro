@@ -1,0 +1,31 @@
+---
+import "../styles/main.scss";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#D6B7C2" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <title>{title}</title>
+  </head>
+  <body data-api-url={import.meta.env.PUBLIC_DATA_API_URL ?? ""}>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <slot />
+  </body>
+</html>

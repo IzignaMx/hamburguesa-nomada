@@ -1,0 +1,32 @@
+[
+  {
+    "prize_id": "PR-IZ-IMPULSO",
+    "title": "Impulso Digital Autogestivo",
+    "description": "Una landing estática de hasta cinco secciones para un proyecto autogestivo, ciclista, comunitario o basado en plantas. Incluye diseño responsivo, enlace a WhatsApp o Instagram, publicación en GitHub Pages por doce meses y una ronda de ajustes. La persona ganadora entrega textos e imágenes. No incluye dominio, ecommerce, pagos, panel administrativo ni desarrollo de backend.",
+    "sponsor_id": "izignamx",
+    "assignment_mode": "MANUAL",
+    "category": "TODAS",
+    "position_from": "",
+    "position_to": "",
+    "quantity": 1,
+    "priority": 100,
+    "allow_multiple": false,
+    "active": true,
+    "delivery": "Hasta 30 días naturales después de recibir contenidos completos."
+  },
+  {
+    "prize_id": "PR-IZ-DIAGNOSTICO",
+    "title": "Diagnóstico Digital Express",
+    "description": "Sesión remota de 30 minutos y reporte de una página con hallazgos priorizados de UX, rendimiento, accesibilidad y conversión para un sitio, tienda o proyecto digital.",
+    "sponsor_id": "izignamx",
+    "assignment_mode": "MANUAL",
+    "category": "TODAS",
+    "position_from": "",
+    "position_to": "",
+    "quantity": 3,
+    "priority": 110,
+    "allow_multiple": false,
+    "active": true,
+    "delivery": "Hasta 10 días hábiles después de agendar la sesión."
+  }
+]

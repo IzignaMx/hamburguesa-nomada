@@ -1,0 +1,38 @@
+[
+  {
+    "id": "dj-astrum",
+    "name": "DJ Astrum",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "image": "/images/djs/dj-astrum-placeholder.webp"
+  },
+  {
+    "id": "fuulgoor",
+    "name": "Fuulgoor",
+    "startTime": "15:30",
+    "endTime": "17:30",
+    "image": "/images/djs/fuulgoor-placeholder.webp"
+  },
+  {
+    "id": "anonymus",
+    "name": "Anonymus",
+    "startTime": "17:00",
+    "endTime": "18:30",
+    "image": "",
+    "scheduleNote": "Horario transcrito del arte. Se traslapa con Fuulgoor."
+  },
+  {
+    "id": "premiacion",
+    "name": "Premiación",
+    "startTime": "18:30",
+    "endTime": "",
+    "image": ""
+  },
+  {
+    "id": "delicyd",
+    "name": "Delicyd",
+    "startTime": "19:00",
+    "endTime": "21:30",
+    "image": "/images/djs/delicyd-placeholder.webp"
+  }
+]

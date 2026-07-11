@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SponsorsGrid from "../components/SponsorsGrid.astro";
+import sponsors from "../data/sponsors.json";
+import copy from "../data/official-copy.json";
+---
+
+<BaseLayout
+  title="Hamburguesa Nómada — Aniversario 5"
+  description="Alleycat, convivencia, categorías, DJS, colaboradorxs y premios."
+>
+  <Hero />
+
+  <main id="main">
+    <section id="comunicado" class="section">
+      <div class="container literal-copy">
+        <h2>{copy.announcement.title}</h2>
+
+        {
+          copy.announcement.paragraphs.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))
+        }
+
+        <ul class="official-list">
+          {
+            copy.announcement.items.map((item) => (
+              <li>{item}</li>
+            ))
+          }
+        </ul>
+
+        {
+          copy.announcement.footer.map((line) => (
+            <p class="official-footer-line">{line}</p>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section section--ink">
+      <div class="container literal-copy">
+        <h2>{copy.categories.title}</h2>
+        <p class="eyebrow">{copy.categories.subtitle}</p>
+
+        <ul class="category-grid">
+          {
+            copy.categories.items.map((category) => (
+              <li>{category}</li>
+            ))
+          }
+        </ul>
+
+        <p>{copy.categories.requirements}</p>
+        <p>{copy.categories.care}</p>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container literal-copy">
+        <h2>{copy.music.title}</h2>
+        <ul class="schedule-list">
+          {
+            copy.music.items.map((item) => (
+              <li>{item}</li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>{copy.collaborators.title}</h2>
+        <SponsorsGrid sponsors={sponsors} />
+      </div>
+    </section>
+
+    <section class="section section--ink">
+      <div class="container">
+        <h2>PREMIOS</h2>
+        <a class="button button--light" href="/premios/?code=DEMO-HN5">
+          CONSULTAR PREMIO
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="https://izignamx.com">IzignaMx</a>
+    </div>
+  </footer>
+</BaseLayout>

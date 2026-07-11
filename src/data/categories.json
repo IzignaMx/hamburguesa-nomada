@@ -1,0 +1,22 @@
+[
+  {
+    "id": "trans-nb",
+    "name": "Trans / N.B."
+  },
+  {
+    "id": "femenil",
+    "name": "Femenil"
+  },
+  {
+    "id": "varonil",
+    "name": "Varonil"
+  },
+  {
+    "id": "cargo-mixto",
+    "name": "Cargo mixto"
+  },
+  {
+    "id": "patines-mixto",
+    "name": "Patines mixto"
+  }
+]

@@ -1,0 +1,411 @@
+{
+  "version": "0.3.0",
+  "generatedAt": "2026-07-11T00:00:00-06:00",
+  "event": {
+    "id": "hn5-2026",
+    "name": "Alleycat 5º Aniversario — Hamburguesa Nómada",
+    "edition": 5,
+    "date": "2026-07-11",
+    "timezone": "America/Mexico_City",
+    "riderMeetingTime": "13:00",
+    "startTime": "13:00",
+    "meetingPoint": {
+      "name": "Parque de la Bombilla",
+      "audience": "Corredorxs",
+      "address": "Álvaro Obregón, Ciudad de México",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Parque+de+la+Bombilla+CDMX"
+    },
+    "publicStartTime": "14:00",
+    "publicAdmission": "Cooperación voluntaria consciente",
+    "publicVenue": {
+      "name": "Chocolatería 400 Voces",
+      "audience": "Todo público",
+      "address": "Alfonso Pruneda #24, Copilco el Alto",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Alfonso+Pruneda+24+Copilco+el+Alto"
+    },
+    "awardsTime": "18:30",
+    "awardsVenue": {
+      "name": "Chocolatería 400 Voces",
+      "address": "Alfonso Pruneda #24, Copilco el Alto",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Alfonso+Pruneda+24+Copilco+el+Alto"
+    },
+    "feeMxn": 150,
+    "riderAdmissionIncludes": "Entrada a la convivencia y bajón vegano",
+    "instagramUrl": "https://www.instagram.com/hamburguesanomada"
+  },
+  "sponsors": [
+    {
+      "id": "bien-veggis",
+      "name": "Bien Veggis",
+      "type": "collaborator",
+      "logo": "/sponsors/bien-veggis.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "1-1"
+    },
+    {
+      "id": "la-cantarera",
+      "name": "La Cantarera",
+      "type": "collaborator",
+      "logo": "/sponsors/la-cantarera.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "low",
+      "sourceGridPosition": "1-2"
+    },
+    {
+      "id": "nyx-bikers-morritas",
+      "name": "NYX Bikers Morritas",
+      "type": "collaborator",
+      "logo": "/sponsors/nyx-bikers-morritas.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "1-3"
+    },
+    {
+      "id": "veggitos-sweets",
+      "name": "Veggitos Sweets",
+      "type": "collaborator",
+      "logo": "/sponsors/veggitos-sweets.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "1-4"
+    },
+    {
+      "id": "salvia-cafe",
+      "name": "Salvia Café",
+      "type": "collaborator",
+      "logo": "/sponsors/salvia-cafe.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "1-5"
+    },
+    {
+      "id": "veganxs-trascendiendo",
+      "name": "Veganxs Trascendiendo",
+      "type": "collaborator",
+      "logo": "/sponsors/veganxs-trascendiendo.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "1-6"
+    },
+    {
+      "id": "la-vegana",
+      "name": "La Vegana",
+      "type": "collaborator",
+      "logo": "/sponsors/la-vegana.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "medium",
+      "sourceGridPosition": "2-1"
+    },
+    {
+      "id": "bonanza-vegetal",
+      "name": "Bonanza Vegetal",
+      "type": "collaborator",
+      "logo": "/sponsors/bonanza-vegetal.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "2-2"
+    },
+    {
+      "id": "colaboracion-temporal-09",
+      "name": "Colaboración temporal 09",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-09.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "2-3"
+    },
+    {
+      "id": "culhuacanes-bici-polo",
+      "name": "Culhuacanes Bici Polo",
+      "type": "collaborator",
+      "logo": "/sponsors/culhuacanes-bici-polo.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "2-4"
+    },
+    {
+      "id": "fuego-en-la-concha",
+      "name": "Fuego en la Concha",
+      "type": "collaborator",
+      "logo": "/sponsors/fuego-en-la-concha.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "2-5"
+    },
+    {
+      "id": "colaboracion-temporal-12",
+      "name": "Colaboración temporal 12",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-12.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "2-6"
+    },
+    {
+      "id": "rojo-y-negro-colectivo",
+      "name": "Rojo y Negro Colectivo",
+      "type": "collaborator",
+      "logo": "/sponsors/rojo-y-negro-colectivo.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "3-1"
+    },
+    {
+      "id": "400-voces",
+      "name": "400 Voces",
+      "type": "venue",
+      "logo": "/sponsors/400-voces.png",
+      "description": "Sede de la convivencia abierta al público.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "3-2"
+    },
+    {
+      "id": "colaboracion-temporal-15",
+      "name": "Colaboración temporal 15",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-15.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "3-3"
+    },
+    {
+      "id": "taller-libertad",
+      "name": "Taller Libertad",
+      "type": "collaborator",
+      "logo": "/sponsors/taller-libertad.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "3-4"
+    },
+    {
+      "id": "mech-a-mano-y-con-amor",
+      "name": "MECH+ · A mano y con amor",
+      "type": "collaborator",
+      "logo": "/sponsors/mech-a-mano-y-con-amor.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "3-5"
+    },
+    {
+      "id": "colaboracion-temporal-18",
+      "name": "Colaboración temporal 18",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-18.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "3-6"
+    },
+    {
+      "id": "pulqueria-la-guerrera",
+      "name": "Pulquería La Guerrera",
+      "type": "collaborator",
+      "logo": "/sponsors/pulqueria-la-guerrera.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "4-1"
+    },
+    {
+      "id": "colaboracion-temporal-20",
+      "name": "Colaboración temporal 20",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-20.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "4-2"
+    },
+    {
+      "id": "itakate",
+      "name": "Itakate",
+      "type": "collaborator",
+      "logo": "/sponsors/itakate.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "4-3"
+    },
+    {
+      "id": "bike-or-die",
+      "name": "Bike or Die",
+      "type": "collaborator",
+      "logo": "/sponsors/bike-or-die.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "4-4"
+    },
+    {
+      "id": "nina-robot",
+      "name": "Niña Robot",
+      "type": "collaborator",
+      "logo": "/sponsors/nina-robot.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "4-5"
+    },
+    {
+      "id": "colaboracion-temporal-24",
+      "name": "Colaboración temporal 24",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-24.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "4-6"
+    },
+    {
+      "id": "colaboracion-temporal-25",
+      "name": "Colaboración temporal 25",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-25.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "5-1"
+    },
+    {
+      "id": "el-rey-de-la-montana",
+      "name": "El Rey de la Montaña",
+      "type": "collaborator",
+      "logo": "/sponsors/el-rey-de-la-montana.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "5-2"
+    },
+    {
+      "id": "tla-autonomia-trabajo-libertad",
+      "name": "TLA · Autonomía, Trabajo, Libertad",
+      "type": "collaborator",
+      "logo": "/sponsors/tla-autonomia-trabajo-libertad.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "medium",
+      "sourceGridPosition": "5-3"
+    },
+    {
+      "id": "colaboracion-temporal-28",
+      "name": "Colaboración temporal 28",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-28.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "5-4"
+    },
+    {
+      "id": "izignamx",
+      "name": "IzignaMx",
+      "type": "technical",
+      "logo": "/sponsors/izignamx.png",
+      "description": "Experiencia digital y automatización del evento.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "high",
+      "sourceGridPosition": "5-5",
+      "url": "https://izignamx.com"
+    },
+    {
+      "id": "colaboracion-temporal-30",
+      "name": "Colaboración temporal 30",
+      "type": "collaborator",
+      "logo": "/sponsors/colaboracion-temporal-30.png",
+      "description": "Colaboración del quinto aniversario.",
+      "source": "extracted-placeholder",
+      "needsReplacement": true,
+      "identificationConfidence": "unknown",
+      "sourceGridPosition": "5-6"
+    }
+  ],
+  "prizes": [
+    {
+      "prizeId": "PR-IZ-IMPULSO",
+      "title": "Impulso Digital Autogestivo",
+      "description": "Una landing estática de hasta cinco secciones para un proyecto autogestivo, ciclista, comunitario o basado en plantas. Incluye diseño responsivo, enlace a WhatsApp o Instagram, publicación en GitHub Pages por doce meses y una ronda de ajustes. La persona ganadora entrega textos e imágenes. No incluye dominio, ecommerce, pagos, panel administrativo ni desarrollo de backend.",
+      "sponsorId": "izignamx",
+      "ruleCategory": "TODAS",
+      "rulePosition": 0,
+      "quantity": 1,
+      "priority": 100,
+      "allowMultiple": false,
+      "active": true
+    },
+    {
+      "prizeId": "PR-IZ-DIAGNOSTICO",
+      "title": "Diagnóstico Digital Express",
+      "description": "Sesión remota de 30 minutos y reporte de una página con hallazgos priorizados de UX, rendimiento, accesibilidad y conversión para un sitio, tienda o proyecto digital.",
+      "sponsorId": "izignamx",
+      "ruleCategory": "TODAS",
+      "rulePosition": 0,
+      "quantity": 3,
+      "priority": 110,
+      "allowMultiple": false,
+      "active": true
+    }
+  ],
+  "results": [],
+  "awards": [
+    {
+      "awardId": "AW-DEMO",
+      "shareCode": "DEMO-HN5",
+      "participantName": "Participante demo",
+      "category": "Trans / N.B.",
+      "position": 1,
+      "prizeId": "PR-DEMO",
+      "prizeTitle": "Premio de demostración",
+      "prizeDescription": "Este registro valida QR, consulta y descarga.",
+      "sponsorId": "izignamx",
+      "sponsorName": "IzignaMx",
+      "assignedAt": "2026-07-11T00:00:00-06:00"
+    }
+  ]
+}

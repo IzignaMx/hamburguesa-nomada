@@ -1,0 +1,32 @@
+{
+  "id": "hn5-2026",
+  "name": "Alleycat 5º Aniversario — Hamburguesa Nómada",
+  "edition": 5,
+  "date": "2026-07-11",
+  "timezone": "America/Mexico_City",
+  "riderMeetingTime": "13:00",
+  "startTime": "13:00",
+  "meetingPoint": {
+    "name": "Parque de la Bombilla",
+    "audience": "Corredorxs",
+    "address": "Álvaro Obregón, Ciudad de México",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Parque+de+la+Bombilla+CDMX"
+  },
+  "publicStartTime": "14:00",
+  "publicAdmission": "Cooperación voluntaria consciente",
+  "publicVenue": {
+    "name": "Chocolatería 400 Voces",
+    "audience": "Todo público",
+    "address": "Alfonso Pruneda #24, Copilco el Alto",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Alfonso+Pruneda+24+Copilco+el+Alto"
+  },
+  "awardsTime": "18:30",
+  "awardsVenue": {
+    "name": "Chocolatería 400 Voces",
+    "address": "Alfonso Pruneda #24, Copilco el Alto",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Alfonso+Pruneda+24+Copilco+el+Alto"
+  },
+  "feeMxn": 150,
+  "riderAdmissionIncludes": "Entrada a la convivencia y bajón vegano",
+  "instagramUrl": "https://www.instagram.com/hamburguesanomada"
+}
