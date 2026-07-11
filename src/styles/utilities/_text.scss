@@ -1,0 +1,65 @@
+.notice {
+  margin-top: var(--space-6);
+  border-inline-start: 8px solid var(--color-orange-700);
+  padding: var(--space-4);
+  background: var(--surface-paper);
+}
+
+.asset-status {
+  display: inline-block;
+  margin-block: 0.5rem;
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.55rem;
+  color: var(--text-inverse);
+  background: var(--color-plum-700);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.about-nomada {
+  display: grid;
+  grid-template-columns: minmax(10rem, 18rem) 1fr;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.about-nomada img {
+  width: 100%;
+  border: var(--border-heavy) solid var(--border-strong);
+  border-radius: 50%;
+}
+
+@media (max-width: 42rem) {
+  .about-nomada {
+    grid-template-columns: 1fr;
+  }
+
+  .about-nomada img {
+    max-width: 14rem;
+  }
+}
+
+.literal-copy {
+  text-transform: none;
+}
+
+.literal-copy > p {
+  max-width: var(--container-reading);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.65;
+  letter-spacing: 0.015em;
+}
+
+.official-list {
+  display: grid;
+  gap: 1rem;
+  max-width: var(--container-reading);
+  margin-block: 2rem;
+  padding-inline-start: 1.5rem;
+  font-weight: 800;
+}
+
+.official-footer-line {
+  font-family: var(--font-ui);
+}

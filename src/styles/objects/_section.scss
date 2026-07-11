@@ -1,0 +1,12 @@
+.section {
+  padding-block: clamp(3rem, 8vw, 7rem);
+}
+
+.section--ink {
+  color: var(--text-inverse);
+  background: var(--surface-inverse);
+}
+
+.section--soft {
+  background: var(--surface-soft);
+}

@@ -1,0 +1,27 @@
+.schedule-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
+  padding: 0;
+  list-style: none;
+}
+
+.schedule-list li {
+  display: block;
+  border-bottom: var(--border-default) dashed var(--border-strong);
+  padding-block: 1rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 900;
+}
+
+.schedule-list time {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.schedule-list small {
+  display: block;
+  margin-top: 0.4rem;
+}

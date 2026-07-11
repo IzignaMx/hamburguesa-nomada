@@ -1,0 +1,36 @@
+.prize-lookup {
+  min-height: 100svh;
+  padding-block: var(--space-9);
+  background: var(--surface-poster);
+}
+
+.lookup-form {
+  max-width: 44rem;
+}
+
+.lookup-form__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.lookup-form input {
+  flex: 1 1 18rem;
+  min-height: 52px;
+  border: 3px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  padding-inline: 1rem;
+  background: var(--surface-paper);
+}
+
+.award-card {
+  max-width: 44rem;
+  margin-top: var(--space-6);
+}
+
+.qr-preview {
+  width: fit-content;
+  margin-block: var(--space-5);
+  border: 12px solid var(--surface-paper);
+  background: var(--surface-paper);
+}
