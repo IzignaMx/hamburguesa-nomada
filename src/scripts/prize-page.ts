@@ -1,6 +1,7 @@
 import QRCode from "qrcode";
 import { loadPublicData } from "./data-client";
 import { downloadPrizeCard } from "./prize-card";
+import { updateForAward, resetDefaults } from "./og-update";
 import type { PublicAward, PublicPayload } from "../lib/types";
 
 const form = document.querySelector<HTMLFormElement>("#prize-form");
@@ -64,6 +65,9 @@ async function renderAward(award: PublicAward): Promise<void> {
     });
   }
 
+  /* Actualizar OG tags */
+  updateForAward(award.participantName, award.prizeTitle, award.category, award.position);
+
   if (result) result.hidden = false;
   setStatus("Premio encontrado.");
 }
@@ -84,6 +88,7 @@ async function lookup(code: string): Promise<void> {
 
     if (!award) {
       currentAward = null;
+      resetDefaults();
       setLoading(false);
       setStatus("No encontramos un premio publicado con ese código.", true);
       return;
@@ -95,6 +100,7 @@ async function lookup(code: string): Promise<void> {
     setLoading(false);
     await renderAward(award);
   } catch {
+    resetDefaults();
     setLoading(false);
     setStatus("No fue posible consultar premios en este momento.", true);
   }
