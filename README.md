@@ -76,13 +76,29 @@ Copia `.env.example` a `.env` y completa si usas fuente remota.
 
 ## Despliegue
 
-El repositorio incluye un workflow de **GitHub Actions** (`.github/workflows/deploy.yml`) que:
+El repositorio incluye dos workflows de **GitHub Actions**:
+
+### `deploy.yml` — Push y manual
 
 1. Construye el sitio en `ubuntu-latest`
 2. Sube el artifact a GitHub Pages
-3. Despliega automáticamente al hacer push a `main`
+3. Despliega al hacer push a `main`
+4. También se puede disparar manualmente desde Actions
 
-También se puede disparar manualmente desde la pestaña **Actions** del repositorio.
+### `data-watcher.yml` — Auto-refresh por cambios en API
+
+Cuando el JSON de `PUBLIC_DATA_API_URL` cambia (ej. resultados/publicación de premios en vivo), este workflow lo detecta y redepliega automáticamente sin intervención manual.
+
+```
+⏱️ Cadencia:     cada 30 minutos
+📅 Ventana:      11–15 de julio de 2026
+🔀 Manual:       workflow_dispatch siempre disponible
+🛑 Skip si:      API no responde, datos sin cambios, o fuera de ventana
+```
+
+El workflow normaliza ambos JSON con `jq -cS` antes de comparar, ignorando diferencias de formato o whitespace. Si el contenido es idéntico, no corre build ni deploy, ahorrando minutos de Actions.
+
+> Después del 15 de julio el schedule se desactiva automáticamente. Los deploys posteriores deben hacerse por push a `main` o vía `workflow_dispatch`.
 
 ## Estructura del proyecto
 
