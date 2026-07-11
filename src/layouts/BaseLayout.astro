@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const apiUrl = import.meta.env.PUBLIC_DATA_API_URL ?? "";
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -18,13 +19,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#D6B7C2" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {apiUrl && <link rel="dns-prefetch" href={new URL(apiUrl).origin} />}
+    <link rel="preload" href="/fonts/SS_Soapy_Hands.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/SSSoapyHands-Italic.woff2" as="font" type="font/woff2" crossorigin />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <title>{title}</title>
   </head>
-  <body data-api-url={import.meta.env.PUBLIC_DATA_API_URL ?? ""}>
+  <body data-api-url={apiUrl}>
     <a class="skip-link" href="#main">Saltar al contenido</a>
     <slot />
   </body>
