@@ -10,23 +10,6 @@
   margin-top: var(--space-5);
 }
 
-.fact-grid,
-.sponsor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: var(--space-5);
-}
-
-.fact-grid article,
-.sponsor-card,
-.award-card {
-  border: 3px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  background: var(--surface-paper);
-  box-shadow: var(--shadow-soft);
-}
-
 .category-grid {
   display: flex;
   flex-wrap: wrap;
@@ -41,4 +24,12 @@
   padding: 0.65rem 1rem;
   font-weight: 800;
   background: var(--surface-paper);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.category-grid li:hover {
+  transform: scale(1.06);
+  background: var(--color-pink-100);
 }

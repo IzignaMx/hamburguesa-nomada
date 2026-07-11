@@ -1,3 +1,5 @@
+/* ── Prize Lookup Page ───────────────────────── */
+
 .prize-lookup {
   min-height: 100svh;
   padding-block: var(--space-9);
@@ -23,10 +25,76 @@
   background: var(--surface-paper);
 }
 
+/* ── Award card ──────────────────────────────── */
+
 .award-card {
   max-width: 44rem;
   margin-top: var(--space-6);
+  border: var(--border-default) solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  background: var(--surface-paper);
+  box-shadow: var(--shadow-soft);
 }
+
+/* ── Loading skeleton ────────────────────────── */
+
+.prize-loading {
+  max-width: 44rem;
+  margin-top: var(--space-6);
+}
+
+.prize-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.prize-skeleton__line {
+  height: 1.2rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-pink-100) 25%,
+    var(--color-pink-400) 50%,
+    var(--color-pink-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.prize-skeleton__box {
+  height: 12rem;
+  width: 12rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--color-pink-100) 25%,
+    var(--color-pink-400) 50%,
+    var(--color-pink-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Status messages ─────────────────────────── */
+
+#prize-status {
+  margin-top: var(--space-4);
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+
+#prize-status.prize-status--error {
+  color: var(--color-error-700);
+}
+
+/* ── QR preview ──────────────────────────────── */
 
 .qr-preview {
   width: fit-content;

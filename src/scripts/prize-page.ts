@@ -7,6 +7,7 @@ const form = document.querySelector<HTMLFormElement>("#prize-form");
 const codeInput = document.querySelector<HTMLInputElement>("#prize-code");
 const status = document.querySelector<HTMLElement>("#prize-status");
 const result = document.querySelector<HTMLElement>("#prize-result");
+const loadingEl = document.querySelector<HTMLElement>("#prize-loading");
 const person = document.querySelector<HTMLElement>("#award-person");
 const placement = document.querySelector<HTMLElement>("#award-placement");
 const prize = document.querySelector<HTMLElement>("#award-prize");
@@ -20,8 +21,14 @@ const shareButton = document.querySelector<HTMLButtonElement>("#share-award");
 let payload: PublicPayload | null = null;
 let currentAward: PublicAward | null = null;
 
-function setStatus(message: string): void {
-  if (status) status.textContent = message;
+function setStatus(message: string, isError = false): void {
+  if (!status) return;
+  status.textContent = message;
+  status.classList.toggle("prize-status--error", isError);
+}
+
+function setLoading(loading: boolean): void {
+  if (loadingEl) loadingEl.hidden = !loading;
 }
 
 function permalinkFor(code: string): string {
@@ -65,8 +72,9 @@ async function lookup(code: string): Promise<void> {
   const normalized = code.trim().toUpperCase();
   if (!normalized) return;
 
-  setStatus("Buscando premio…");
+  setLoading(true);
   if (result) result.hidden = true;
+  setStatus("Buscando premio…");
 
   try {
     payload ??= await loadPublicData();
@@ -76,16 +84,19 @@ async function lookup(code: string): Promise<void> {
 
     if (!award) {
       currentAward = null;
-      setStatus("No encontramos un premio publicado con ese código.");
+      setLoading(false);
+      setStatus("No encontramos un premio publicado con ese código.", true);
       return;
     }
 
     const url = new URL(window.location.href);
     url.searchParams.set("code", award.shareCode);
     history.replaceState({}, "", url);
+    setLoading(false);
     await renderAward(award);
   } catch {
-    setStatus("No fue posible consultar premios en este momento.");
+    setLoading(false);
+    setStatus("No fue posible consultar premios en este momento.", true);
   }
 }
 
@@ -121,6 +132,8 @@ shareButton?.addEventListener("click", async () => {
   await navigator.clipboard.writeText(url);
   setStatus("Enlace copiado.");
 });
+
+/* ── Auto-lookup desde URL ───────────────────── */
 
 const initialCode = new URLSearchParams(window.location.search).get("code");
 if (initialCode && codeInput) {

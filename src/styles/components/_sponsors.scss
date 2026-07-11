@@ -1,7 +1,47 @@
+/* ── Sponsor Grid ────────────────────────────── */
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-5);
+}
+
+.sponsor-card {
+  border: var(--border-default) solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  background: var(--surface-paper);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform var(--duration-standard) var(--ease-out),
+    box-shadow var(--duration-standard) var(--ease-out);
+}
+
+.sponsor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-float);
+}
+
 .sponsor-card img {
+  display: block;
   width: 100%;
   max-width: 12rem;
   aspect-ratio: 1;
   margin-inline: auto;
   object-fit: contain;
+  transition: transform var(--duration-standard) var(--ease-out);
+}
+
+.sponsor-card:hover img {
+  transform: scale(1.05);
+}
+
+.sponsor-card h3 {
+  margin-top: var(--space-3);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }

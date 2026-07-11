@@ -1,0 +1,46 @@
+/* ── Section reveals ─────────────────────────── */
+
+.section {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity var(--duration-expressive) var(--ease-out),
+    transform var(--duration-expressive) var(--ease-out);
+}
+
+.section.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.section.is-revealed > .container > * {
+  animation: reveal-up var(--duration-expressive) var(--ease-out) backwards;
+}
+
+.section.is-revealed > .container > *:nth-child(1) { animation-delay: 0ms; }
+.section.is-revealed > .container > *:nth-child(2) { animation-delay: 60ms; }
+.section.is-revealed > .container > *:nth-child(3) { animation-delay: 120ms; }
+.section.is-revealed > .container > *:nth-child(4) { animation-delay: 180ms; }
+.section.is-revealed > .container > *:nth-child(5) { animation-delay: 240ms; }
+.section.is-revealed > .container > *:nth-child(6) { animation-delay: 300ms; }
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1;
+    transform: none;
+  }
+}

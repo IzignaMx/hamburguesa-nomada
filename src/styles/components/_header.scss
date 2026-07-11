@@ -91,6 +91,11 @@
   background: var(--color-pink-100);
 }
 
+.site-header__nav a.nav--active {
+  background: var(--color-ink-950);
+  color: var(--text-inverse);
+}
+
 /* ── Mobile ───────────────────────────────── */
 
 @media (max-width: 48rem) {
