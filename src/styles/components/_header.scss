@@ -1,0 +1,135 @@
+/* ── SiteHeader ───────────────────────────── */
+
+.site-header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgb(246 235 221 / 88%);
+  border-bottom: var(--border-default) solid var(--border-strong);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
+.site-header__logo-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.site-header__logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: var(--border-thin) solid var(--border-strong);
+  object-fit: cover;
+}
+
+.site-header__wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Hamburger (checkbox hack) ───────────── */
+
+.nav-toggle {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.nav-btn__line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--color-ink-950);
+  border-radius: 2px;
+  transition: transform var(--duration-fast) ease, opacity var(--duration-fast) ease;
+}
+
+/* ── Nav ──────────────────────────────────── */
+
+.site-header__nav {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.site-header__nav a {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background var(--duration-fast) ease;
+}
+
+.site-header__nav a:hover {
+  background: var(--color-pink-100);
+}
+
+/* ── Mobile ───────────────────────────────── */
+
+@media (max-width: 48rem) {
+  .nav-btn {
+    display: flex;
+  }
+
+  .site-header__nav {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    background: var(--surface-paper);
+    transform: translateX(100%);
+    transition: transform var(--duration-standard) var(--ease-out);
+  }
+
+  .site-header__nav a {
+    font-size: var(--text-xl);
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .nav-toggle:checked ~ .site-header__nav {
+    transform: translateX(0);
+  }
+
+  .nav-toggle:checked ~ .nav-btn .nav-btn__line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .nav-btn .nav-btn__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .nav-btn .nav-btn__line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

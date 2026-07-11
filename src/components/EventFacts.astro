@@ -1,0 +1,28 @@
+---
+/**
+ * EventFacts — datos clave del evento en pills visuales
+ */
+import event from "../data/event.json";
+---
+
+<div class="event-facts" aria-label="Información del evento">
+  <div class="event-fact">
+    <span class="event-fact__label">Fecha</span>
+    <span class="event-fact__value">Sábado 11 de julio</span>
+  </div>
+
+  <div class="event-fact">
+    <span class="event-fact__label">Corredorxs</span>
+    <span class="event-fact__value">{event.meetingPoint.name} · {event.riderMeetingTime} hrs</span>
+  </div>
+
+  <div class="event-fact">
+    <span class="event-fact__label">Público</span>
+    <span class="event-fact__value">{event.publicVenue.name} · {event.publicStartTime} hrs</span>
+  </div>
+
+  <div class="event-fact">
+    <span class="event-fact__label">Costo</span>
+    <span class="event-fact__value">${event.feeMxn} MXN</span>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import Hero from "../components/Hero.astro";
 import SponsorsGrid from "../components/SponsorsGrid.astro";
 import sponsors from "../data/sponsors.json";
@@ -10,6 +11,7 @@ import copy from "../data/official-copy.json";
   title="Hamburguesa Nómada — Aniversario 5"
   description="Alleycat, convivencia, categorías, DJS, colaboradorxs y premios."
 >
+  <SiteHeader />
   <Hero />
 
   <main id="main">
@@ -57,7 +59,7 @@ import copy from "../data/official-copy.json";
       </div>
     </section>
 
-    <section class="section section--soft">
+    <section id="djs" class="section section--soft">
       <div class="container literal-copy">
         <h2>{copy.music.title}</h2>
         <ul class="schedule-list">
@@ -70,14 +72,14 @@ import copy from "../data/official-copy.json";
       </div>
     </section>
 
-    <section class="section">
+    <section id="colaboradores" class="section">
       <div class="container">
         <h2>{copy.collaborators.title}</h2>
         <SponsorsGrid sponsors={sponsors} />
       </div>
     </section>
 
-    <section class="section section--ink">
+    <section id="premios" class="section section--ink">
       <div class="container">
         <h2>PREMIOS</h2>
         <a class="button button--light" href="/premios/?code=DEMO-HN5">

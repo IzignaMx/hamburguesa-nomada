@@ -1,3 +1,5 @@
+/* ── Hero — Rediseño 2 columnas asimétricas ── */
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -5,62 +7,148 @@
   background: var(--surface-poster);
 }
 
-.hero__texture {
+/* ── Motivos decorativos ──────────────────── */
+
+.hero__rays {
   position: absolute;
   inset: 0;
-  opacity: 0.25;
-  background-image:
-    radial-gradient(circle at center, transparent 0 38%, rgb(25 21 24 / 10%) 38.5% 39%, transparent 39.5%),
-    repeating-radial-gradient(circle at center, transparent 0 18px, rgb(25 21 24 / 8%) 19px 20px, transparent 21px 38px);
+  z-index: 0;
+  opacity: 0.12;
+  background:
+    conic-gradient(
+      from 160deg at 50% 10%,
+      transparent 0deg,
+      var(--color-yellow-300) 20deg,
+      transparent 25deg,
+      var(--color-yellow-300) 45deg,
+      transparent 50deg,
+      var(--color-yellow-300) 70deg,
+      transparent 75deg,
+      var(--color-yellow-300) 95deg,
+      transparent 100deg,
+      var(--color-yellow-300) 120deg,
+      transparent 125deg,
+      var(--color-yellow-300) 145deg,
+      transparent 150deg,
+      var(--color-yellow-300) 170deg,
+      transparent 175deg,
+      var(--color-yellow-300) 195deg,
+      transparent 200deg,
+      var(--color-yellow-300) 220deg,
+      transparent 225deg,
+      var(--color-yellow-300) 245deg,
+      transparent 250deg,
+      var(--color-yellow-300) 270deg,
+      transparent 275deg,
+      var(--color-yellow-300) 295deg,
+      transparent 360deg
+    );
 }
 
-.hero__content {
+.hero__arc {
+  position: absolute;
+  right: -8%;
+  bottom: -12%;
+  z-index: 0;
+  width: 55%;
+  aspect-ratio: 1;
+  border: 6px solid var(--color-orange-500);
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.hero__arc::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 4px solid var(--color-orange-500);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.hero__flare {
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  z-index: 0;
+  width: 30vmax;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(217 76 43 / 10%) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Layout principal ─────────────────────── */
+
+.hero__inner {
   position: relative;
   z-index: 1;
   display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-8);
   align-content: center;
   min-height: 92svh;
   padding-block: var(--space-9);
 }
 
-.hero__lead {
-  max-width: 42rem;
-  font-size: clamp(1.15rem, 3vw, 1.5rem);
-}
+/* ── Columna brand ────────────────────────── */
 
-.hero__facts {
+.hero__brand {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-block: var(--space-5);
-}
-
-.hero__facts span {
-  border: var(--border-default) solid var(--border-strong);
-  border-radius: var(--radius-pill);
-  padding: 0.65rem 1rem;
-  font-weight: 800;
-  background: var(--surface-paper);
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero__logo {
-  width: clamp(8rem, 22vw, 14rem);
+  width: clamp(7rem, 16vw, 11rem);
   aspect-ratio: 1;
+  margin-bottom: var(--space-4);
   border: var(--border-heavy) solid var(--border-strong);
   border-radius: 50%;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-print);
   object-fit: cover;
 }
 
-.official-lines {
-  max-width: 54rem;
-  margin-block: var(--space-5);
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 2.7vw, 1.35rem);
-  font-weight: 800;
-  text-transform: uppercase;
+.hero__anniversary {
+  margin: 0 0 var(--space-2);
 }
 
-.official-lines p {
-  margin-block: 0.35rem;
+.hero__title {
+  max-width: 8ch;
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  margin: 0;
+}
+
+/* ── Columna info ─────────────────────────── */
+
+.hero__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__actions {
+  margin-top: var(--space-5);
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 64rem) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .hero__brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__title {
+    text-align: center;
+  }
+
+  .hero__arc {
+    display: none;
+  }
 }

@@ -1,0 +1,39 @@
+---
+/**
+ * SiteHeader — barra de navegación sticky con hamburger CSS-only
+ *
+ *   - Logo + nav en escritorio
+ *   - Checkbox hamburger en móvil (sin JS)
+ *   - Smooth scroll a secciones
+ */
+---
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a href="/" class="site-header__logo-link" aria-label="Ir al inicio">
+      <img
+        class="site-header__logo"
+        src="/logos/hamburguesa-nomada.webp"
+        alt=""
+        width="36"
+        height="36"
+      />
+      <span class="site-header__wordmark">NÓMADA</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-btn" aria-label="Abrir menú de navegación">
+      <span class="nav-btn__line"></span>
+      <span class="nav-btn__line"></span>
+      <span class="nav-btn__line"></span>
+    </label>
+
+    <nav class="site-header__nav" aria-label="Navegación principal">
+      <a href="#comunicado">Comunicado</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#djs">DJS</a>
+      <a href="#colaboradores">Colaboradorxs</a>
+      <a href="/premios/">Premios</a>
+    </nav>
+  </div>
+</header>
