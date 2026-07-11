@@ -10,42 +10,49 @@
 import posterRays from "../assets/poster/generated/poster-rays-flames.webp";
 import posterTitle from "../assets/poster/generated/poster-title-composition.webp";
 import posterDatePlace from "../assets/poster/generated/poster-date-place.webp";
+import { Image, Picture } from "astro:assets";
 ---
 
 <div class="poster-art" aria-hidden="true">
+  <div class="poster-art__hatch" data-parallax="hatch"></div>
+
   <!-- Capa base: rayos y flamas (parallax layer 1) -->
   <div class="poster-art__rays" data-parallax="rays">
-    <img
-      src={posterRays.src}
+    <Image
+      src={posterRays}
       alt=""
-      width="800"
-      height="1380"
+      widths={[400, 800]}
+      sizes="(max-width: 64rem) 90vw, 52vw"
       loading="eager"
       decoding="async"
     />
   </div>
 
-  <!-- Composición principal del título -->
+  <!-- Composición principal del título + sticker fecha anidado -->
   <div class="poster-art__title" data-parallax="title">
-    <img
-      src={posterTitle.src}
+    <Picture
+      src={posterTitle}
       alt=""
-      width="600"
-      height="1035"
-      fetchpriority="high"
-      decoding="async"
+      formats={["avif"]}
+      fallbackFormat="webp"
+      widths={[320, 480, 640, 800, 1200]}
+      sizes="(max-width: 64rem) 86vw, 52vw"
+      quality={38}
+      priority
     />
-  </div>
 
-  <!-- Sticker: texto curvo fecha y sede (parallax layer 2) -->
-  <div class="poster-art__sticker" data-parallax="sticker">
-    <img
-      src={posterDatePlace.src}
-      alt=""
-      width="400"
-      height="690"
-      loading="eager"
-      decoding="async"
-    />
+    <!-- Sticker: fecha y sede (parallax layer 2, wrapper externo para layout + interno para motion) -->
+    <div class="poster-art__sticker">
+      <div class="poster-art__sticker-parallax" data-parallax="sticker">
+        <Image
+          src={posterDatePlace}
+          alt=""
+          widths={[240, 400]}
+          sizes="(max-width: 64rem) 38vw, 15vw"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
   </div>
 </div>

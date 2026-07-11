@@ -9,6 +9,7 @@
 const prefersReduced = window.matchMedia(
   "(prefers-reduced-motion: no-preference)",
 );
+document.documentElement.classList.add("reveal-ready");
 const revealElements = document.querySelectorAll<HTMLElement>(".section");
 
 if (revealElements.length > 0 && prefersReduced.matches) {

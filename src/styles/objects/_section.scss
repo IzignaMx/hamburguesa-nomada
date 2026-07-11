@@ -1,12 +1,89 @@
 .section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: clamp(3rem, 8vw, 7rem);
+  background-color: var(--poster-cream);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background: url("../../assets/decor/paper-grain.svg") repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.section h2 {
+  margin-block: 0 var(--space-6);
+  color: inherit;
+  text-wrap: balance;
 }
 
 .section--ink {
-  color: var(--text-inverse);
-  background: var(--surface-inverse);
+  color: var(--poster-cream);
+  background-color: var(--poster-ink);
 }
 
 .section--soft {
-  background: var(--surface-soft);
+  background-color: var(--poster-yellow);
+}
+
+.section--announcement {
+  background:
+    linear-gradient(135deg, transparent 0 74%, rgb(245 60 6 / 10%) 74% 100%),
+    var(--poster-cream);
+}
+
+.section--announcement::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: clamp(2rem, 8vw, 5rem);
+  right: clamp(-5rem, -2vw, -1rem);
+  width: clamp(9rem, 22vw, 18rem);
+  aspect-ratio: 1;
+  border: 1.25rem dotted var(--poster-pink);
+  border-radius: 50%;
+  opacity: 0.35;
+  transform: rotate(8deg);
+}
+
+.section--categories {
+  background:
+    radial-gradient(circle at 10% 10%, rgb(242 125 158 / 22%), transparent 22rem),
+    var(--poster-ink);
+}
+
+.section--categories::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -5rem;
+  bottom: -7rem;
+  width: min(35rem, 72vw);
+  aspect-ratio: 1;
+  background: var(--poster-yellow);
+  opacity: 0.16;
+  mask: url("../../assets/decor/radial-hatch.svg") center / contain no-repeat;
+  -webkit-mask: url("../../assets/decor/radial-hatch.svg") center / contain no-repeat;
+}
+
+.section--lineup {
+  background:
+    linear-gradient(90deg, var(--poster-yellow) 0 96%, var(--poster-fire) 96% 100%);
+}
+
+.section--collaborators {
+  background:
+    linear-gradient(180deg, var(--poster-cream) 0 12%, var(--poster-pink-light) 12% 100%);
+}
+
+@media (max-width: 48rem) {
+  .section--lineup {
+    background: var(--poster-yellow);
+    border-inline-end: 0.5rem solid var(--poster-fire);
+  }
 }

@@ -64,7 +64,7 @@ const djs: DJEntry[] = [
 ---
 
 <BaseLayout title="Galería — Hamburguesa Nómada" description="Imágenes del póster oficial y fotografías de los artistas del Alleycat 5º Aniversario.">
-  <section class="section section--soft" id="galeria">
+  <main class="section section--soft gallery-page" id="main">
     <div class="container">
       <h1 class="eyebrow">Galería</h1>
       <h2 class="section-title">Póster oficial</h2>
@@ -98,7 +98,7 @@ const djs: DJEntry[] = [
             <img
               class="gallery-card__img gallery-card__img--portrait"
               src={dj.image}
-              alt={`{dj.name}`}
+              alt={dj.name}
               width="400"
               height="400"
               loading="lazy"
@@ -109,7 +109,10 @@ const djs: DJEntry[] = [
         ))}
       </div>
     </div>
-  </section>
+    <p class="container back-link-wrap">
+      <a href="/">Volver al evento</a>
+    </p>
+  </main>
 </BaseLayout>
 
 <style>

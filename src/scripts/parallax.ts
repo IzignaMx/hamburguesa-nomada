@@ -12,10 +12,11 @@
  * Respeta prefers-reduced-motion.
  */
 
-const PARALLAX_SPEEDS: Record<string, number> = {
-  rays: 0.15,
-  title: 0.25,
-  sticker: 0.35,
+const PARALLAX_LIMITS: Record<string, number> = {
+  rays: 18,
+  title: 10,
+  sticker: 12,
+  hatch: 8,
 };
 
 const prefersMotion = window.matchMedia(
@@ -34,11 +35,12 @@ if (parallaxElements.length > 0 && prefersMotion.matches) {
 
     parallaxElements.forEach((el) => {
       const layer = el.getAttribute("data-parallax") ?? "";
-      const speed = PARALLAX_SPEEDS[layer] ?? 0.2;
+      const limit = PARALLAX_LIMITS[layer] ?? 8;
       const rect = el.getBoundingClientRect();
       const elementCenter = rect.top + rect.height / 2;
-      const offset = elementCenter - viewportCenter;
-      const translateY = offset * speed * -1;
+      const distance = viewportCenter - elementCenter;
+      const normalizedDistance = Math.max(-1, Math.min(1, distance / window.innerHeight));
+      const translateY = normalizedDistance * limit;
 
       el.style.transform = `translateY(${translateY}px)`;
     });
@@ -55,5 +57,4 @@ if (parallaxElements.length > 0 && prefersMotion.matches) {
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
-  updateParallax(); /* Posición inicial */
 }

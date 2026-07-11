@@ -3,11 +3,32 @@
 .prize-lookup {
   min-height: 100svh;
   padding-block: var(--space-9);
-  background: var(--surface-poster);
+  background:
+    linear-gradient(90deg, var(--poster-pink-light) 0 4%, transparent 4% 96%, var(--poster-pink-light) 96% 100%),
+    url("../../assets/decor/paper-grain.svg") repeat,
+    var(--poster-pink);
+}
+
+.prize-lookup h1 {
+  color: var(--poster-ink);
+  text-shadow: 3px 3px 0 var(--poster-cream);
 }
 
 .lookup-form {
   max-width: 44rem;
+  border: 3px solid var(--poster-ink);
+  border-radius: 0.8rem 1.4rem 0.7rem 1.1rem;
+  padding: var(--space-5);
+  background: var(--poster-yellow);
+  box-shadow: var(--shadow-print);
+}
+
+.lookup-form label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--poster-ink);
+  font-family: var(--font-ui);
+  font-weight: 800;
 }
 
 .lookup-form__row {
@@ -19,10 +40,11 @@
 .lookup-form input {
   flex: 1 1 18rem;
   min-height: 52px;
-  border: 3px solid var(--border-strong);
-  border-radius: var(--radius-pill);
+  border: 3px solid var(--poster-ink);
+  border-radius: 0.6rem 1rem 0.6rem 0.9rem;
   padding-inline: 1rem;
-  background: var(--surface-paper);
+  color: var(--poster-ink);
+  background: var(--poster-cream);
 }
 
 /* ── Award card ──────────────────────────────── */
@@ -30,11 +52,25 @@
 .award-card {
   max-width: 44rem;
   margin-top: var(--space-6);
-  border: var(--border-default) solid var(--border-strong);
-  border-radius: var(--radius-md);
+  border: 3px solid var(--poster-ink);
+  border-radius: 0.8rem 1.4rem 0.7rem 1.1rem;
   padding: var(--space-5);
-  background: var(--surface-paper);
-  box-shadow: var(--shadow-soft);
+  color: var(--poster-ink);
+  background: var(--poster-cream);
+  box-shadow: var(--shadow-print);
+}
+
+.award-card h2,
+.award-card h3 {
+  color: var(--poster-fire-dark);
+}
+
+.award-card code {
+  border: 1px solid var(--poster-dust);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.4rem;
+  color: var(--poster-ink);
+  background: var(--poster-yellow);
 }
 
 /* ── Loading skeleton ────────────────────────── */
@@ -99,6 +135,25 @@
 .qr-preview {
   width: fit-content;
   margin-block: var(--space-5);
-  border: 12px solid var(--surface-paper);
-  background: var(--surface-paper);
+  border: 12px solid #fff;
+  outline: 3px solid var(--poster-ink);
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--poster-fire-dark);
+}
+
+@media (max-width: 36rem) {
+  .prize-lookup {
+    padding-block: var(--space-7);
+  }
+
+  .lookup-form {
+    padding: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prize-skeleton__line,
+  .prize-skeleton__box {
+    animation: none;
+  }
 }

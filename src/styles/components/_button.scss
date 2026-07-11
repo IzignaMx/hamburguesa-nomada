@@ -5,10 +5,10 @@
   justify-content: center;
   gap: 0.5rem;
   border: 3px solid var(--border-strong);
-  border-radius: var(--radius-pill);
+  border-radius: 0.75rem 1.1rem 0.7rem 1rem;
   padding: 0.75rem 1.125rem;
   color: var(--action-primary-text);
-  background: var(--action-primary-bg);
+  background: var(--poster-ink);
   font-family: var(--font-ui);
   font-weight: 800;
   text-decoration: none;
@@ -20,7 +20,7 @@
 
 .button:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--color-ink-950);
+  box-shadow: 4px 4px 0 var(--poster-fire-dark);
 }
 
 .button:active {
@@ -29,12 +29,21 @@
 }
 
 .button--ghost {
-  color: var(--action-secondary-text);
-  background: var(--action-secondary-bg);
+  color: var(--poster-ink);
+  background: var(--poster-cream);
 }
 
 .button--light {
-  color: var(--action-secondary-text);
-  border-color: var(--border-subtle);
-  background: var(--action-secondary-bg);
+  color: var(--poster-ink);
+  border-color: var(--poster-ink);
+  background: var(--poster-yellow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button:hover,
+  .button:active {
+    transform: none;
+    transition: none;
+  }
 }

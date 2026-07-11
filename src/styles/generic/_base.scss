@@ -6,6 +6,10 @@ body {
   line-height: 1.6;
 }
 
+body.nav-menu-open {
+  overflow: hidden;
+}
+
 button,
 input,
 select,
@@ -37,15 +41,27 @@ textarea {
   transform: none;
 }
 
-h1,
-h2,
-h3 {
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .page-title,
+  .section-title,
+  .card-title,
+  .hero__title,
+  .lineup-name,
+  .prize-title,
+  .event-heading
+) {
+  font-family: var(--font-title);
   line-height: 1.05;
 }
 
 h1,
 h2 {
-  font-family: var(--font-display);
   text-transform: uppercase;
 }
 
@@ -60,7 +76,7 @@ h2 {
 }
 
 .eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;

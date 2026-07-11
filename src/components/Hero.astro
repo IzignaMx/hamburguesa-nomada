@@ -1,5 +1,7 @@
 ---
 import copy from "../data/official-copy.json";
+import brandLogo from "../assets/brand/hamburguesa-nomada-logo.webp";
+import { Image } from "astro:assets";
 import Countdown from "./Countdown.astro";
 import EventFacts from "./EventFacts.astro";
 import HeroPosterArt from "./HeroPosterArt.astro";
@@ -8,17 +10,25 @@ import HeroPosterArt from "./HeroPosterArt.astro";
 <div class="hero" id="hero">
   <div class="hero__inner container">
     <div class="hero__brand">
-      <img
+      <Image
         class="hero__logo"
-        src="/logos/hamburguesa-nomada.webp"
+        src={brandLogo}
         alt=""
-        width="140"
-        height="140"
-        fetchpriority="high"
+        widths={[96, 140, 192]}
+        sizes="(max-width: 48rem) 22vw, 8vw"
+        quality={60}
+        loading="eager"
+        decoding="async"
       />
       <p class="eyebrow hero__anniversary">{copy.hero.anniversary}</p>
       <h1 class="hero__title">{copy.hero.event}</h1>
+    </div>
 
+    <div class="hero__poster">
+      <HeroPosterArt />
+    </div>
+
+    <div class="hero__details">
       <Countdown />
 
       <EventFacts />
@@ -28,8 +38,6 @@ import HeroPosterArt from "./HeroPosterArt.astro";
         <a class="button button--ghost" href="/premios/">PREMIOS</a>
       </div>
     </div>
-
-    <HeroPosterArt />
   </div>
 </div>
 
