@@ -6,7 +6,7 @@
  * Versión actualizada en cada build para evitar servir versiones obsoletas.
  */
 
-const CACHE = "hm-alleycat-v1";
+const CACHE = "hm-alleycat-v4";
 
 /* ── Instalación: precargar app shell ─────────── */
 
@@ -15,8 +15,9 @@ self.addEventListener("install", (event) => {
     cache.addAll([
       "/",
       "/premios/",
+      "/resultados/",
+      "/galeria/",
       "/fonts/SS_Soapy_Hands.woff2",
-      "/fonts/SSSoapyHands-Italic.woff2",
       "/logos/hamburguesa-nomada.webp",
       "/favicon.ico",
       "/favicon-32x32.png",
@@ -45,14 +46,23 @@ self.addEventListener("activate", (event) => {
 
 async function cacheFirst(request) {
   const cached = await caches.match(request);
-  return cached ?? fetch(request);
+  if (cached) return cached;
+
+  const fresh = await fetch(request);
+  if (fresh.ok) {
+    const cache = await caches.open(CACHE);
+    await cache.put(request, fresh.clone());
+  }
+  return fresh;
 }
 
 async function networkFirst(request) {
   try {
     const fresh = await fetch(request);
-    const cache = await caches.open(CACHE);
-    cache.put(request, fresh.clone());
+    if (fresh.ok) {
+      const cache = await caches.open(CACHE);
+      await cache.put(request, fresh.clone());
+    }
     return fresh;
   } catch {
     const cached = await caches.match(request);

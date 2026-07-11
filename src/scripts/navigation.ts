@@ -16,12 +16,27 @@ const sections = document.querySelectorAll<HTMLElement>("section[id]");
 /* ── Mobile menu toggle ───────────────────────── */
 
 if (navBtn && header) {
+  const closeMenu = (restoreFocus = false): void => {
+    navBtn.setAttribute("aria-expanded", "false");
+    navBtn.setAttribute("aria-label", "Abrir menú de navegación");
+    header.classList.remove("nav--open");
+    document.body.classList.remove("nav-menu-open");
+    if (restoreFocus) navBtn.focus();
+  };
+
   navBtn.addEventListener("click", () => {
     const isOpen = navBtn.getAttribute("aria-expanded") === "true";
     const next = !isOpen;
     navBtn.setAttribute("aria-expanded", String(next));
     header.classList.toggle("nav--open", next);
+    document.body.classList.toggle("nav-menu-open", next);
     navBtn.setAttribute("aria-label", next ? "Cerrar menú" : "Abrir menú de navegación");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navBtn.getAttribute("aria-expanded") === "true") {
+      closeMenu(true);
+    }
   });
 }
 
@@ -30,7 +45,10 @@ if (navBtn && header) {
 function setActiveLink(id: string): void {
   navLinks.forEach((link) => {
     const href = link.getAttribute("href") ?? "";
-    link.classList.toggle("nav--active", href === `#${id}`);
+    const isActive = href === `#${id}`;
+    link.classList.toggle("nav--active", isActive);
+    if (isActive) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
   });
 }
 
@@ -56,6 +74,7 @@ navLinks.forEach((link) => {
     if (navBtn && navBtn.getAttribute("aria-expanded") === "true") {
       navBtn.setAttribute("aria-expanded", "false");
       header?.classList.remove("nav--open");
+      document.body.classList.remove("nav-menu-open");
       navBtn.setAttribute("aria-label", "Abrir menú de navegación");
     }
   });

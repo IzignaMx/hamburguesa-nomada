@@ -1,0 +1,55 @@
+.prize-callout {
+  min-height: 30rem;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 50%, rgb(242 125 158 / 22%), transparent 28rem),
+    var(--poster-ink);
+}
+
+.prize-callout__frame {
+  position: absolute;
+  z-index: -1;
+  inset: 50% auto auto 50%;
+  width: min(62rem, 96vw);
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.prize-callout__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.prize-callout__content {
+  position: relative;
+  width: min(42rem, calc(100% - 3rem));
+  padding-block: clamp(3rem, 8vw, 6rem);
+  text-align: center;
+}
+
+.prize-callout__content h2 {
+  max-width: none;
+  margin-bottom: var(--space-3);
+  color: var(--poster-yellow);
+  text-shadow: 3px 3px 0 var(--poster-fire-dark);
+}
+
+.prize-callout__copy {
+  max-width: 44ch;
+  margin: 0 auto var(--space-5);
+  color: var(--poster-cream);
+}
+
+@media (max-width: 40rem) {
+  .prize-callout {
+    min-height: 26rem;
+  }
+
+  .prize-callout__frame {
+    width: 48rem;
+    opacity: 0.55;
+  }
+}

@@ -2,8 +2,11 @@
 
 .footer {
   padding-block: var(--space-7);
-  color: var(--text-inverse);
-  background: var(--surface-inverse);
+  color: var(--poster-ink);
+  border-top: 4px solid var(--poster-ink);
+  background:
+    linear-gradient(135deg, transparent 0 70%, rgb(229 213 131 / 36%) 70% 100%),
+    var(--poster-pink);
   text-align: center;
 }
 
@@ -19,19 +22,21 @@
   font-family: var(--font-ui);
   font-size: var(--text-sm);
   line-height: 1.6;
-  color: var(--color-pink-300);
+  color: var(--poster-ink);
+  font-family: var(--font-title);
+  font-size: var(--text-md);
 }
 
 .footer__credit {
   margin: 0;
   font-family: var(--font-ui);
   font-size: var(--text-xs);
-  color: var(--color-pink-500);
+  color: var(--poster-fire-dark);
   letter-spacing: 0.04em;
 }
 
 .footer__credit a {
-  color: var(--text-inverse);
+  color: var(--poster-ink);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: opacity var(--duration-fast) ease;

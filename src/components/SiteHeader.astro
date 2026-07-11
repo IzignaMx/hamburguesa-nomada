@@ -1,22 +1,28 @@
 ---
 /**
- * SiteHeader — barra de navegación sticky con hamburger CSS-only
+ * SiteHeader — navegación sticky con botón móvil semántico
  *
  *   - Logo + nav en escritorio
- *   - Checkbox hamburger en móvil (sin JS)
+ *   - Menú móvil controlado por navigation.ts
  *   - Smooth scroll a secciones
  */
+
+import brandLogo from "../assets/brand/hamburguesa-nomada-logo.webp";
+import { Image } from "astro:assets";
 ---
 
 <header class="site-header">
   <div class="site-header__inner container">
     <a href="/" class="site-header__logo-link" aria-label="Ir al inicio de Hamburguesa Nómada">
-      <img
+      <Image
         class="site-header__logo"
-        src="/logos/hamburguesa-nomada.webp"
+        src={brandLogo}
         alt=""
-        width="36"
-        height="36"
+        widths={[36, 72]}
+        sizes="36px"
+        quality={60}
+        loading="eager"
+        decoding="async"
       />
       <span class="site-header__wordmark">Hamburguesa Nómada</span>
     </a>
@@ -40,7 +46,13 @@
       <a href="/resultados/">Resultados</a>
       <a href="/galeria/">Galería</a>
       <a href="/premios/">Premios</a>
-      <a class="nav-whatsapp" href="https://wa.me/525578362426" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a
+        class="nav-whatsapp"
+        href="https://wa.me/525578362426"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+      ></a>
     </nav>
   </div>
 </header>

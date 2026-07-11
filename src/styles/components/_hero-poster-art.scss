@@ -6,13 +6,18 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-height: 60vh;
+  min-height: min(78vh, 48rem);
+  isolation: isolate;
 }
 
 .poster-art img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.poster-art picture {
+  display: block;
 }
 
 /* ── Capa base: rayos y flamas ────────────── */
@@ -23,7 +28,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.35;
+  opacity: 0.92;
   pointer-events: none;
 
   img {
@@ -38,28 +43,44 @@
 .poster-art__title {
   position: relative;
   z-index: 1;
-  width: clamp(12rem, 28vw, 22rem);
+  width: min(100%, 42rem);
 
-  img {
+  img,
+  picture {
+    display: block;
     width: 100%;
     height: auto;
   }
 }
 
-/* ── Sticker de fecha ──────────────────────── */
+/* ── Sticker de fecha (anidado en título) ──── */
 
 .poster-art__sticker {
   position: absolute;
-  right: -5%;
-  bottom: 10%;
+  left: 50%;
+  bottom: 0;
   z-index: 2;
-  width: clamp(6rem, 14vw, 12rem);
+  width: clamp(6rem, 15vw, 11rem);
+  transform: translateX(-50%) translateY(10%);
   pointer-events: none;
+}
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+.poster-art__sticker-parallax img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.poster-art__hatch {
+  position: absolute;
+  z-index: -1;
+  width: min(95%, 40rem);
+  aspect-ratio: 1;
+  background: var(--poster-ink);
+  opacity: 0.18;
+  mask: url("../../assets/decor/radial-hatch.svg") center / contain no-repeat;
+  -webkit-mask: url("../../assets/decor/radial-hatch.svg") center / contain no-repeat;
+  pointer-events: none;
 }
 
 /* ── Mobile ────────────────────────────────── */
@@ -67,20 +88,25 @@
 @media (max-width: 64rem) {
   .poster-art {
     min-height: auto;
-    padding-block: var(--space-4);
+    padding-block: 0;
   }
 
   .poster-art__title {
-    width: min(60vw, 16rem);
+    width: min(86vw, 34rem);
   }
 
   .poster-art__sticker {
-    right: 2%;
-    bottom: 5%;
-    width: clamp(5rem, 20vw, 8rem);
+    width: clamp(5rem, 30vw, 10rem);
+    transform: translateX(-50%) translateY(12%);
   }
 
   .poster-art__rays {
-    opacity: 0.2;
+    opacity: 0.88;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster-art [data-parallax] {
+    transform: none !important;
   }
 }

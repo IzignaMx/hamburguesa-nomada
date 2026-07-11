@@ -2,12 +2,24 @@
 /**
  * PrizeCallout — sección de llamada a premios con CTA
  */
+import { Image } from "astro:assets";
+import posterFrame from "../assets/poster/generated/poster-frame.webp";
 ---
 
-<section id="premios" class="section section--ink">
-  <div class="container">
+<section id="premios" class="section section--ink prize-callout">
+  <div class="prize-callout__frame" aria-hidden="true">
+    <Image
+      src={posterFrame}
+      alt=""
+      widths={[480, 720, 960]}
+      sizes="(max-width: 48rem) 94vw, 58rem"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="container prize-callout__content">
     <h2>PREMIOS</h2>
-    <p class="literal-copy" style="margin-bottom: var(--space-5);">
+    <p class="literal-copy prize-callout__copy">
       Consulta tu código para descargar tu reconocimiento digital.
       ¿No tienes código? Usa <strong>DEMO-HN5</strong> para ver un ejemplo.
     </p>

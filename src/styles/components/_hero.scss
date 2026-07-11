@@ -3,10 +3,18 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 92svh;
-  /* Fondo oscuro para integrar assets rojos, amarillos y blancos */
-  background: var(--color-ink-950);
-  color: var(--text-inverse);
+  min-height: calc(100svh - 59px);
+  color: var(--poster-ink);
+  background: var(--poster-pink-light);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../assets/decor/paper-grain.svg") repeat;
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 /* ── Layout principal ─────────────────────── */
@@ -15,29 +23,32 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: var(--space-8);
-  align-content: center;
-  min-height: 92svh;
-  padding-block: var(--space-9);
+  grid-template-columns: minmax(11rem, 0.55fr) minmax(28rem, 1.55fr) minmax(17rem, 0.75fr);
+  grid-template-areas: "brand poster details";
+  gap: clamp(0.75rem, 2vw, 2rem);
+  align-items: center;
+  min-height: calc(100svh - 59px);
+  padding-block: clamp(2rem, 5vw, 4.5rem);
 }
 
 /* ── Columna brand ────────────────────────── */
 
 .hero__brand {
+  grid-area: brand;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .hero__logo {
-  width: clamp(5rem, 12vw, 8.75rem);
-  aspect-ratio: 1;
+  width: clamp(4.5rem, 8vw, 7rem);
+  height: clamp(4.5rem, 8vw, 7rem);
   margin-bottom: var(--space-3);
-  border: var(--border-heavy) solid rgb(255 255 255 / 30%);
+  border: var(--border-heavy) solid var(--poster-cream);
   border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--color-ink-950), 0 0 0 5px rgb(255 255 255 / 15%);
-  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--poster-ink), 5px 5px 0 var(--poster-fire-dark);
+  object-fit: contain;
+  background: var(--poster-cream);
 }
 
 .hero__anniversary {
@@ -45,30 +56,67 @@
 }
 
 .hero__title {
-  max-width: 8ch;
-  font-size: clamp(3.5rem, 12vw, 8rem);
-  margin: 0 0 var(--space-5);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero__poster {
+  grid-area: poster;
+  min-width: 0;
+}
+
+.hero__details {
+  grid-area: details;
+  min-width: 0;
 }
 
 /* ── Acciones ─────────────────────────────── */
 
 .hero__actions .button--ghost {
-  border-color: var(--surface-paper);
-  color: var(--surface-paper);
+  border-color: var(--poster-ink);
+  color: var(--poster-ink);
+  background: var(--poster-cream);
 }
 
 .hero__actions .button--ghost:hover {
-  background: var(--surface-paper);
-  color: var(--color-ink-950);
+  background: var(--poster-yellow);
+  color: var(--poster-ink);
 }
 
 /* ── Responsive ───────────────────────────── */
 
-@media (max-width: 64rem) {
+@media (max-width: 74rem) {
   .hero__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(22rem, 1.4fr);
+    grid-template-areas:
+      "brand poster"
+      "details details";
+    gap: var(--space-5);
     padding-block: var(--space-7);
+  }
+
+  .hero__details {
+    width: min(100%, 44rem);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "brand"
+      "poster"
+      "details";
+    gap: var(--space-3);
+    padding-block: var(--space-6) var(--space-7);
   }
 
   .hero__brand {
@@ -78,11 +126,15 @@
   }
 
   .hero__logo {
-    width: clamp(4rem, 14vw, 6rem);
+    width: clamp(4.5rem, 22vw, 6.5rem);
   }
 
   .hero__title {
     text-align: center;
-    margin-bottom: var(--space-4);
+    font-size: clamp(2.8rem, 14vw, 5rem);
+  }
+
+  .hero__actions {
+    justify-content: center;
   }
 }

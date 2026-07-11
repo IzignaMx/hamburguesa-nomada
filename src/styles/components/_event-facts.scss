@@ -12,9 +12,11 @@
   flex-direction: column;
   gap: 0.2rem;
   border: var(--border-default) solid var(--border-strong);
-  border-radius: var(--radius-md);
+  border-radius: 0.75rem 1rem 0.7rem 1.1rem;
   padding: var(--space-3) var(--space-4);
-  background: var(--surface-paper);
+  color: var(--poster-ink);
+  background: var(--poster-yellow);
+  box-shadow: 3px 3px 0 var(--poster-ink);
   transition:
     transform var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
@@ -22,7 +24,7 @@
 
 .event-fact:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
+  box-shadow: 5px 5px 0 var(--poster-ink);
 }
 
 .event-fact__label {
@@ -31,16 +33,24 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-plum-700);
+  color: var(--poster-dust);
 }
 
 .event-fact__value {
   font-family: var(--font-display);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--poster-ink);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-fact,
+  .event-fact:hover {
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 26rem) {

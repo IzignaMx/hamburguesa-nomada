@@ -1,13 +1,14 @@
 /* ── Countdown ──────────────────────────────── */
 
 .countdown-wrap {
-  max-width: 36rem;
+  max-width: 100%;
   margin-block: var(--space-6) var(--space-5);
   border: 3px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  padding: var(--space-6) var(--space-5);
-  background: var(--surface-paper);
-  box-shadow: var(--shadow-soft);
+  border-radius: 1rem 0.7rem 1.15rem 0.8rem;
+  padding: var(--space-5) var(--space-4);
+  color: var(--poster-ink);
+  background: var(--poster-cream);
+  box-shadow: 5px 5px 0 var(--poster-ink);
   text-align: center;
 }
 
@@ -20,7 +21,7 @@
   font-weight: 900;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-plum-700);
+  color: var(--poster-dust);
 }
 
 /* ── Countdown grid ──────────────────────────── */
@@ -44,7 +45,7 @@
   font-size: clamp(2.2rem, 8vw, 4rem);
   font-weight: 400;
   line-height: 1;
-  color: var(--color-orange-700);
+  color: var(--poster-fire-dark);
   letter-spacing: 0.02em;
   text-shadow:
     1px 1px 0 var(--color-ink-950),
@@ -57,14 +58,14 @@
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-plum-700);
+  color: var(--poster-dust);
   margin-top: 0.25rem;
 }
 
 .countdown-sep {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 5vw, 3rem);
-  color: var(--color-orange-700);
+  color: var(--poster-fire-dark);
   opacity: 0.4;
   line-height: 1;
   padding-top: 0.15em;
