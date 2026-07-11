@@ -1,0 +1,41 @@
+---
+/**
+ * Resultados — resultados completos por categoría
+ *
+ * Carga datos vía loadPublicData() (client-side).
+ * Agrupa por categoría, muestra podio + posiciones restantes.
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Resultados — Hamburguesa Nómada"
+  description="Resultados completos del Alleycat 5º Aniversario por categoría."
+>
+  <main id="main" class="results-page">
+    <div class="container">
+      <p class="eyebrow">Aniversario 5</p>
+      <h1>Resultados</h1>
+
+      <div id="results-loading" aria-live="polite">
+        <p>Cargando resultados…</p>
+      </div>
+
+      <div id="results-empty" hidden>
+        <p>Aún no hay resultados publicados. Vuelve más tarde.</p>
+      </div>
+
+      <div id="results-content" hidden>
+        <!-- Renderizado por results.ts -->
+      </div>
+    </div>
+
+    <p class="container" style="margin-top: var(--space-5)">
+      <a href="/">Volver al evento</a>
+    </p>
+  </main>
+
+  <script>
+    import "../../scripts/results";
+  </script>
+</BaseLayout>

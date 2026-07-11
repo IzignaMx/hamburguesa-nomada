@@ -75,6 +75,14 @@ export interface PublicAward {
   assignedAt: string;
 }
 
+export interface GalleryItem {
+  src: string;
+  alt: string;
+  label: string;
+  width: number;
+  height: number;
+}
+
 export interface PublicPayload {
   version: string;
   generatedAt: string;
