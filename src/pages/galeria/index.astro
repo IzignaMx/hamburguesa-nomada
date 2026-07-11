@@ -1,0 +1,124 @@
+---
+/**
+ * Galería — imágenes del evento
+ *
+ * Muestra arte del póster oficial y fotos de DJs.
+ * Carga imágenes desde /images/ (estáticas).
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { GalleryItem } from "../../lib/types";
+
+interface DJEntry {
+  id: string;
+  name: string;
+  image: string;
+}
+
+/* ── Imágenes de póster ──────────────────────────── */
+
+const posterItems: GalleryItem[] = [
+  {
+    src: "/images/AlleyCat_HamburguesaNomada-titulo.png",
+    alt: "Título del póster oficial: Hamburguesa Nómada Alleycat 5º Aniversario",
+    label: "Título del evento",
+    width: 1200,
+    height: 600,
+  },
+  {
+    src: "/images/AlleyCat_HamburguesaNomada-rayos.png",
+    alt: "Motivo decorativo de rayos del póster",
+    label: "Rayos y flamas",
+    width: 800,
+    height: 800,
+  },
+  {
+    src: "/images/AlleyCat_HamburguesaNomada-recuadro.png",
+    alt: "Recuadro decorativo del póster con texto informativo",
+    label: "Recuadro informativo",
+    width: 600,
+    height: 800,
+  },
+  {
+    src: "/images/AlleyCat_HamburguesaNomada-texto.png",
+    alt: "Texto complementario del póster: fechas y detalles",
+    label: "Detalles del evento",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/logos/hamburguesa-nomada.webp",
+    alt: "Logotipo circular de Hamburguesa Nómada",
+    label: "Logo oficial",
+    width: 512,
+    height: 512,
+  },
+];
+
+/* ── DJs con imagen ──────────────────────────────── */
+
+const djs: DJEntry[] = [
+  { id: "dj-astrum", name: "DJ Astrum", image: "/images/djs/dj-astrum-placeholder.webp" },
+  { id: "fuulgoor", name: "Fuulgoor", image: "/images/djs/fuulgoor-placeholder.webp" },
+  { id: "delicyd", name: "Delicyd", image: "/images/djs/delicyd-placeholder.webp" },
+];
+---
+
+<BaseLayout title="Galería — Hamburguesa Nómada" description="Imágenes del póster oficial y fotografías de los artistas del Alleycat 5º Aniversario.">
+  <section class="section section--soft" id="galeria">
+    <div class="container">
+      <h1 class="eyebrow">Galería</h1>
+      <h2 class="section-title">Póster oficial</h2>
+      <p class="section-desc">
+        Arte del quinto aniversario. Diseño original de la organización.
+      </p>
+
+      <div class="gallery-grid">
+        {posterItems.map((item) => (
+          <figure class="gallery-card">
+            <img
+              class="gallery-card__img"
+              src={item.src}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="gallery-card__label">{item.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <h2 class="section-title" style="margin-top: var(--space-8)">DJs</h2>
+      <p class="section-desc">Fotografías de lxs artistas invitadxs.</p>
+
+      <div class="gallery-grid gallery-grid--djs">
+        {djs.filter((dj) => dj.image).map((dj) => (
+          <figure class="gallery-card">
+            <img
+              class="gallery-card__img gallery-card__img--portrait"
+              src={dj.image}
+              alt={`{dj.name}`}
+              width="400"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="gallery-card__label">{dj.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-desc {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-6);
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+</style>
