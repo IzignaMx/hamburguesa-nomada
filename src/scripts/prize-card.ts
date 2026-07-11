@@ -255,6 +255,11 @@ export async function createPrizeCardSvg(
 
 let _blobCache: { key: string; blob: Blob } | null = null;
 
+/** Limpia el cache de blob entre consultas. */
+export function clearBlobCache(): void {
+  _blobCache = null;
+}
+
 export async function createPrizeCardBlob(
   vm: AwardViewModel,
   assets: AwardAssets

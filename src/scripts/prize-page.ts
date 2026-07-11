@@ -12,7 +12,7 @@
 
 import QRCode from "qrcode";
 import { loadPublicData } from "./data-client";
-import { downloadPrizeCard, createPrizeCardFile } from "./prize-card";
+import { downloadPrizeCard, createPrizeCardFile, clearBlobCache } from "./prize-card";
 import { loadAwardAssets } from "./award-assets";
 import { buildAwardViewModel } from "../lib/award-view-model";
 import { updateForAward, resetDefaults } from "./og-update";
@@ -134,6 +134,8 @@ async function renderAward(award: PublicAward): Promise<void> {
   );
 
   if (result) result.hidden = false;
+  /* Mover foco al encabezado del reconocimiento */
+  personEl?.focus({ preventScroll: true });
   setStatus("");
 }
 
@@ -146,6 +148,7 @@ async function lookup(code: string): Promise<void> {
   setLoading(true);
   if (result) result.hidden = true;
   currentAssets = null;
+  clearBlobCache();
   setStatus("Buscando premio…");
 
   try {
@@ -218,35 +221,40 @@ shareButton?.addEventListener("click", async () => {
     permalinkFor(currentAward.shareCode)
   );
 
-  /* Web Share Level 2: intentar compartir PNG */
-  if (navigator.canShare?.({ files: [new File([], "")] })) {
-    try {
-      const file = await createPrizeCardFile(vm, currentAssets);
+  shareButton.ariaBusy = "true";
+  try {
+    /* Web Share Level 2: intentar compartir PNG */
+    if (navigator.canShare?.({ files: [new File([], "")] })) {
+      try {
+        const file = await createPrizeCardFile(vm, currentAssets);
+        await navigator.share({
+          title: `Reconocimiento — ${vm.participantName}`,
+          text: `${vm.participantName} — ${vm.prizeTitle} • Hamburguesa Nómada 5º aniversario`,
+          files: [file],
+          url: vm.permalink,
+        });
+        return;
+      } catch {
+        /* fallback silencioso a compartir enlace */
+      }
+    }
+
+    /* Fallback: compartir enlace */
+    if (navigator.share) {
       await navigator.share({
         title: `Reconocimiento — ${vm.participantName}`,
         text: `${vm.participantName} — ${vm.prizeTitle} • Hamburguesa Nómada 5º aniversario`,
-        files: [file],
         url: vm.permalink,
       });
       return;
-    } catch {
-      /* fallback silencioso a compartir enlace */
     }
-  }
 
-  /* Fallback: compartir enlace */
-  if (navigator.share) {
-    await navigator.share({
-      title: `Reconocimiento — ${vm.participantName}`,
-      text: `${vm.participantName} — ${vm.prizeTitle} • Hamburguesa Nómada 5º aniversario`,
-      url: vm.permalink,
-    });
-    return;
+    /* No Web Share — copiar enlace */
+    await navigator.clipboard.writeText(vm.permalink);
+    setStatus("Enlace copiado al portapapeles.");
+  } finally {
+    shareButton.ariaBusy = "false";
   }
-
-  /* No Web Share — copiar enlace */
-  await navigator.clipboard.writeText(vm.permalink);
-  setStatus("Enlace copiado al portapapeles.");
 });
 
 copyLinkButton?.addEventListener("click", async () => {
