@@ -1,25 +1,118 @@
 :root {
-  --nomada-pink: #d6b7c2;
-  --nomada-pink-strong: #e487a0;
-  --nomada-pink-deep: #c37689;
-  --nomada-ink: #191518;
-  --nomada-cream: #f1ece6;
-  --nomada-coral: #c35834;
-  --nomada-plum: #4b3d4b;
-  --nomada-yellow: #f1df7e;
+  color-scheme: light;
 
-  --font-display: "SS Soapy Hands", sans-serif;
-  --font-body: "SS Soapy Hands", sans-serif;
-  --font-condensed: "SS Soapy Hands", sans-serif;
+  --color-ink-950: #191518;
+  --color-ink-800: #33272b;
+  --color-paper-50: #f6ebdd;
+  --color-pink-100: #f4d6de;
+  --color-pink-400: #e6819d;
+  --color-rose-700: #7e2d49;
+  --color-orange-500: #d94c2b;
+  --color-orange-700: #9c321d;
+  --color-yellow-300: #f1e291;
+  --color-plum-700: #5b314a;
+  --color-success-700: #23643c;
+  --color-error-700: #9f1d2d;
+  --color-info-700: #1e5270;
 
-  --space-1: 0.5rem;
-  --space-2: 0.75rem;
-  --space-3: 1rem;
-  --space-4: 1.5rem;
-  --space-5: 2rem;
-  --space-6: 3rem;
-  --space-7: 5rem;
+  --surface-canvas: var(--color-paper-50);
+  --surface-paper: #fffaf2;
+  --surface-poster: var(--color-pink-400);
+  --surface-soft: var(--color-pink-100);
+  --surface-inverse: var(--color-ink-950);
+  --surface-accent: var(--color-yellow-300);
 
-  --radius: 1.25rem;
-  --shadow: 0 12px 30px rgb(25 21 24 / 14%);
+  --text-primary: var(--color-ink-950);
+  --text-secondary: var(--color-ink-800);
+  --text-inverse: var(--color-paper-50);
+  --text-link: var(--color-rose-700);
+
+  --border-strong: var(--color-ink-950);
+  --border-subtle: rgb(25 21 24 / 28%);
+
+  --action-primary-bg: var(--color-ink-950);
+  --action-primary-text: var(--color-paper-50);
+  --action-secondary-bg: var(--color-paper-50);
+  --action-secondary-text: var(--color-ink-950);
+  --action-danger-bg: var(--color-error-700);
+
+  --font-display:
+    "SS Soapy Hands",
+    "Arial Black",
+    Impact,
+    sans-serif;
+  --font-body:
+    "Atkinson Hyperlegible",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  --font-ui:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  --font-meta:
+    "Arial Narrow",
+    "Aptos Narrow",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  --font-mono:
+    ui-monospace,
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+
+  --text-xs: clamp(0.78rem, 0.75rem + 0.12vw, 0.875rem);
+  --text-sm: clamp(0.9rem, 0.86rem + 0.16vw, 1rem);
+  --text-md: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.2rem, 1.05rem + 0.65vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  --text-2xl: clamp(2rem, 1.45rem + 2.4vw, 3.5rem);
+  --text-3xl: clamp(3rem, 1.8rem + 5vw, 6.5rem);
+  --text-hero: clamp(4rem, 2rem + 9vw, 10rem);
+
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --border-thin: 1px;
+  --border-default: 2px;
+  --border-heavy: 4px;
+
+  --shadow-print: 6px 6px 0 var(--color-ink-950);
+  --shadow-soft: 0 16px 40px rgb(25 21 24 / 14%);
+  --shadow-float: 0 22px 60px rgb(25 21 24 / 22%);
+
+  --duration-fast: 120ms;
+  --duration-standard: 220ms;
+  --duration-expressive: 420ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --container-wide: 76rem;
+  --container-content: 64rem;
+  --container-reading: 68ch;
+
+  --focus-ring-light: var(--color-rose-700);
+  --focus-ring-dark: var(--color-yellow-300);
 }
