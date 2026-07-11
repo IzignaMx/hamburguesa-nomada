@@ -1,21 +1,33 @@
-<section class="prize-lookup" aria-labelledby="prize-title">
-  <div class="container">
-    <p class="eyebrow">Reconocimiento digital</p>
-    <h1 id="prize-title">Consulta tu premio</h1>
+---
+/**
+ * PrizeLookup — formulario de consulta + tarjeta de reconocimiento digital.
+ *
+ * La tarjeta HTML comparte la misma jerarquía visual que el PNG descargable:
+ *   brand → recipient → prize → sponsor → verification → credit
+ */
+---
 
-    <form id="prize-form" class="lookup-form">
-      <label for="prize-code">Código</label>
-      <div class="lookup-form__row">
-        <input
-          id="prize-code"
-          name="code"
-          autocomplete="off"
-          placeholder="Ej. HN5-TNB-1-A7KQ"
-          required
-        />
-        <button class="button" type="submit">Consultar</button>
-      </div>
-    </form>
+<section class="prize-lookup" aria-labelledby="prize-title">
+  <div class="prize-lookup__inner">
+    <!-- ── Formulario ──────────────────────────── -->
+    <div class="lookup-block">
+      <p class="eyebrow">Reconocimiento digital</p>
+      <h1 id="prize-title">Consulta tu premio</h1>
+
+      <form id="prize-form" class="lookup-form">
+        <label for="prize-code">Código</label>
+        <div class="lookup-form__row">
+          <input
+            id="prize-code"
+            name="code"
+            autocomplete="off"
+            placeholder="Ej. HN5-TNB-1-A7KQ"
+            required
+          />
+          <button class="button" type="submit">Consultar</button>
+        </div>
+      </form>
+    </div>
 
     <!-- Loading skeleton -->
     <div id="prize-loading" class="prize-loading" hidden>
@@ -29,28 +41,97 @@
 
     <p id="prize-status" role="status" aria-live="polite"></p>
 
-    <article id="prize-result" class="award-card" hidden>
-      <p class="eyebrow">5º aniversario</p>
-      <h2 id="award-person"></h2>
-      <p id="award-placement"></p>
-      <h3 id="award-prize"></h3>
-      <p id="award-description"></p>
-      <p>Patrocina: <strong id="award-sponsor"></strong></p>
-      <p>Código: <code id="award-code"></code></p>
-      <div
-        id="award-qr"
-        class="qr-preview"
-        role="img"
-        aria-label="Código QR del premio"
-      ></div>
-      <div class="actions">
-        <button id="download-card" class="button" type="button">
+    <!-- ── Tarjeta de reconocimiento ──────────── -->
+    <article id="prize-result" class="award-card" hidden aria-labelledby="award-person-heading">
+      <!-- Zona A: Identidad superior -->
+      <header class="award-card__header">
+        <div class="award-card__brand" aria-hidden="true">
+          <div class="award-card__logo-ring">
+            <img
+              src="/logos/hamburguesa-nomada.webp"
+              alt=""
+              class="award-card__logo"
+              width="96"
+              height="96"
+            />
+          </div>
+        </div>
+        <p class="award-card__event-name">Hamburguesa Nómada</p>
+        <p class="award-card__edition">5º aniversario</p>
+        <p class="award-card__type-label">Reconocimiento digital</p>
+      </header>
+
+      <!-- Zona B: Persona reconocida -->
+      <section class="award-card__recipient">
+        <h2 id="award-person-heading" class="award-card__name" tabindex="-1"></h2>
+        <div class="award-card__placement">
+          <span class="award-card__category" id="award-placement"></span>
+          <span class="award-card__position-badge" id="award-position-badge"></span>
+        </div>
+      </section>
+
+      <!-- Zona C: Premio -->
+      <section class="award-card__prize">
+        <h3 class="award-card__prize-title" id="award-prize"></h3>
+        <p class="award-card__prize-desc" id="award-description"></p>
+      </section>
+
+      <!-- Zona D: Patrocinador -->
+      <section class="award-card__sponsor">
+        <p class="award-card__sponsor-label">Patrocina</p>
+        <div class="award-card__sponsor-row">
+          <img
+            id="award-sponsor-logo"
+            class="award-card__sponsor-logo"
+            src=""
+            alt=""
+            width="120"
+            height="72"
+            hidden
+          />
+          <strong class="award-card__sponsor-name" id="award-sponsor"></strong>
+        </div>
+      </section>
+
+      <!-- Zona E: Verificación -->
+      <section class="award-card__verification">
+        <div
+          id="award-qr"
+          class="award-card__qr"
+          role="img"
+          aria-label="Código QR del premio"
+        ></div>
+        <div class="award-card__verification-info">
+          <p class="award-card__code-label">Código</p>
+          <code class="award-card__code" id="award-code"></code>
+          <p class="award-card__verify-hint">
+            Escanea el QR o visita<br />
+            <span class="award-card__domain">nomada.izignamx.com</span>
+          </p>
+          <a id="award-verify-link" class="award-card__verify-link" href="#" target="_blank">
+            Abrir verificación
+          </a>
+        </div>
+      </section>
+
+      <!-- Zona F: Acciones -->
+      <footer class="award-card__actions">
+        <button id="download-card" class="button button--download" type="button" aria-busy="false">
           Descargar imagen
         </button>
         <button id="share-award" class="button button--ghost" type="button">
           Compartir
         </button>
-      </div>
+        <button id="copy-link" class="button button--ghost" type="button">
+          Copiar enlace
+        </button>
+      </footer>
+
+      <!-- Crédito técnico -->
+      <p class="award-card__credit">
+        Experiencia digital por
+        <a href="https://izignamx.com" target="_blank" rel="noopener noreferrer">IzignaMx</a>
+      </p>
     </article>
   </div>
 </section>
