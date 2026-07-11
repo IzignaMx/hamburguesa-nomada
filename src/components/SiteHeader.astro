@@ -21,14 +21,18 @@
       <span class="site-header__wordmark">Hamburguesa Nómada</span>
     </a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Abrir menú de navegación" />
-    <label for="nav-toggle" class="nav-btn" aria-label="Abrir menú de navegación">
+    <button
+      class="nav-btn"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Abrir menú de navegación"
+    >
       <span class="nav-btn__line"></span>
       <span class="nav-btn__line"></span>
       <span class="nav-btn__line"></span>
-    </label>
+    </button>
 
-    <nav class="site-header__nav" aria-label="Navegación principal">
+    <nav id="site-nav" class="site-header__nav" aria-label="Navegación principal">
       <a href="#comunicado">Comunicado</a>
       <a href="#categorias">Categorías</a>
       <a href="#djs">DJS</a>
